@@ -246,10 +246,10 @@ func TestGetSummary(t *testing.T) {
 	ctx := context.Background()
 
 	repo.CreateDistribution(ctx, &Distribution{
-		ID: "dist1", DeclarationID: "d1", Amount: 5000, NetAmount: 4500, TaxWithholding: 500, Status: "paid",
+		ID: "dist1", DeclarationID: "d1", GrossAmount: 5000, NetAmount: 4500, TaxWithholding: 500, Status: "paid",
 	})
 	repo.CreateDistribution(ctx, &Distribution{
-		ID: "dist2", DeclarationID: "d1", Amount: 2500, NetAmount: 2250, TaxWithholding: 250, Status: "pending",
+		ID: "dist2", DeclarationID: "d1", GrossAmount: 2500, NetAmount: 2250, TaxWithholding: 250, Status: "pending",
 	})
 
 	summary, err := svc.GetSummary(ctx, "d1")
@@ -259,8 +259,8 @@ func TestGetSummary(t *testing.T) {
 	if summary.RecipientsCount != 2 {
 		t.Fatalf("recipients = %d, want 2", summary.RecipientsCount)
 	}
-	if summary.TotalDistributed != 7500 {
-		t.Fatalf("total_distributed = %f, want 7500", summary.TotalDistributed)
+	if summary.TotalGross != 7500 {
+		t.Fatalf("total_distributed = %f, want 7500", summary.TotalGross)
 	}
 	if summary.PaidCount != 1 {
 		t.Fatalf("paid = %d, want 1", summary.PaidCount)
@@ -276,7 +276,7 @@ func TestMarkPaid(t *testing.T) {
 	ctx := context.Background()
 
 	repo.CreateDistribution(ctx, &Distribution{
-		ID: "dist1", DeclarationID: "d1", Amount: 5000, NetAmount: 5000, Status: "pending",
+		ID: "dist1", DeclarationID: "d1", GrossAmount: 5000, NetAmount: 5000, Status: "pending",
 	})
 
 	if err := svc.MarkPaid(ctx, "dist1"); err != nil {

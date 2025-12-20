@@ -106,7 +106,7 @@ func (s *Service) ProcessRecordDate(ctx context.Context, declarationID string) (
 			DeclarationID: declarationID,
 			StakeholderID: stakeholderID,
 			Shares:        shares,
-			Amount:        amount,
+			GrossAmount:        amount,
 			StockShares:   stockShares,
 			NetAmount:     amount, // withholding computed separately
 			Status:        "pending",
@@ -138,7 +138,7 @@ func (s *Service) GetSummary(ctx context.Context, declarationID string) (*Distri
 	summary := &DistributionSummary{DeclarationID: declarationID}
 	for _, d := range dists {
 		summary.RecipientsCount++
-		summary.TotalDistributed += d.Amount
+		summary.TotalGross += d.GrossAmount
 		summary.TotalWithholding += d.TaxWithholding
 		summary.TotalNet += d.NetAmount
 		switch d.Status {
