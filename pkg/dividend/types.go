@@ -35,7 +35,7 @@ const (
 
 // PaymentToken defines what currency/token the dividend is paid in
 type PaymentToken struct {
-	Symbol          string `json:"symbol"`                     // LUSD, ETH, BTC, LQDTY, any ERC-20
+	Symbol          string `json:"symbol"`                     // LUSD, ETH, BTC, LUX, any ERC-20
 	ContractAddress string `json:"contract_address,omitempty"` // ERC-20 contract address
 	ChainID         int64  `json:"chain_id,omitempty"`
 	Decimals        int    `json:"decimals"`
