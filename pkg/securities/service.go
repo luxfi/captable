@@ -221,6 +221,15 @@ func (s *Service) Convert(ctx context.Context, req *ConversionRequest) (*LedgerE
 	return entry, nil
 }
 
+// UpdateSecurity persists changes to an existing security.
+func (s *Service) UpdateSecurity(ctx context.Context, sec *Security) error {
+	if sec.ID == "" {
+		return fmt.Errorf("security id is required")
+	}
+	sec.UpdatedAt = time.Now().UTC()
+	return s.repo.UpdateSecurity(ctx, sec)
+}
+
 // GetLedger returns the full audit trail for a security.
 func (s *Service) GetLedger(ctx context.Context, securityID string) ([]*LedgerEntry, error) {
 	if securityID == "" {
