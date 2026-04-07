@@ -2,16 +2,40 @@ package securities
 
 import "time"
 
+// Exemption identifies the securities registration exemption.
+type Exemption string
+
+const (
+	ExemptionRegD506B  Exemption = "reg_d_506b"
+	ExemptionRegD506C  Exemption = "reg_d_506c"
+	ExemptionRegS      Exemption = "reg_s"
+	ExemptionRegAPlus  Exemption = "reg_a_plus"
+	ExemptionRegCF     Exemption = "reg_cf"
+)
+
+// SecuritySubType further classifies securities within their primary type.
+type SecuritySubType string
+
+const (
+	SubTypeCommonWarrant   SecuritySubType = "common_warrant"
+	SubTypePreferredWarrant SecuritySubType = "preferred_warrant"
+	SubTypeBrokerWarrant   SecuritySubType = "broker_warrant"
+	SubTypePennyWarrant    SecuritySubType = "penny_warrant"
+)
+
 // Security represents a registered security instrument.
 type Security struct {
 	ID              string    `json:"id"`
 	CompanyID       string    `json:"company_id"`
 	ShareClassID    string    `json:"share_class_id"`
 	Name            string    `json:"name"`
-	Type            string    `json:"type"` // equity, debt, convertible_note, safe, warrant
+	Type            string    `json:"type"`    // equity, debt, convertible_note, safe, warrant
+	SubType         SecuritySubType `json:"sub_type,omitempty"`
 	CUSIP           string    `json:"cusip,omitempty"`
 	ISIN            string    `json:"isin,omitempty"`
-	Exemption       string    `json:"exemption,omitempty"`        // reg_d_506b, reg_d_506c, reg_s, reg_a, reg_cf
+	Exemption       Exemption `json:"exemption,omitempty"`
+	ContractAddress string    `json:"contract_address,omitempty"` // on-chain token contract
+	ChainID         int64     `json:"chain_id,omitempty"`         // blockchain network ID
 	MaxOffering     float64   `json:"max_offering,omitempty"`     // max $ amount of offering
 	AmountRaised    float64   `json:"amount_raised,omitempty"`
 	MinInvestment   float64   `json:"min_investment,omitempty"`
