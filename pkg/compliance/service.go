@@ -8,7 +8,9 @@ import (
 
 // Service handles securities compliance — Form D, blue sky filings, and accreditation checks.
 type Service struct {
-	repo Repository
+	repo         Repository
+	formDFiler   FormDFiler
+	blueSkyFiler BlueSkyFiler
 }
 
 // NewService creates a compliance service.
