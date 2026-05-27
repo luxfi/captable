@@ -1,6 +1,6 @@
 # Lux Cap Table
 
-Domain library for cap table management, securities lifecycle, and compliance -- 24 packages, zero database opinion.
+Domain library for cap table management, securities lifecycle, and compliance -- 26 packages, zero database opinion.
 
 ```
 go get github.com/luxfi/captable
@@ -38,6 +38,8 @@ go get github.com/luxfi/captable
 | `tax` | 1099-DIV, 1099-B, Schedule K-1 generation |
 | `voting` | Shareholder proposals, quorum, vote tallying |
 | `waterfall` | Liquidation waterfall -- seniority, participation, caps |
+| `edgar` | SEC EDGAR Form D adapter — XML schema marshal, SGML envelope, CIK/CCC auth, EDGARLink Online submission, amendment, status query |
+| `bluesky` | State blue-sky notice adapter — NASAA EFD (49 states + DC) + real state-portal adapters (FL, TX, NY, CA, MA), per-state fee calculator |
 
 ### Securities Lifecycle
 
