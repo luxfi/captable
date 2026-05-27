@@ -26,7 +26,35 @@ captable/
     compliance/    -- Form D, blue sky, Reg D compliance checks
     document/      -- Data rooms, document metadata, access control, audit
     tax/           -- 1099-DIV, 1099-B, K-1 generation
+      iris/        -- IRS IRIS (Information Returns Intake System) e-file adapter
+      fire/        -- IRS FIRE (legacy) fixed-width filing adapter (Pub 1220)
+      cfsf/        -- Combined Federal/State Filing routing (32+DC participants)
+      tcc/         -- Transmitter Control Code registry (per-issuer scoping)
 ```
+
+## G-15 tax/iris + tax/fire + tax/cfsf + tax/tcc (P0)
+
+`tax.SubmitForm` is the single integration entrypoint — routes to IRIS
+by default (mandatory for TY 2024+ per IRS final regs), falls back to
+FIRE only for explicitly-flagged legacy-year submissions
+(`SubmissionOptions.ForceLegacyFIRE`) or for forms whose TaxYear is
+below `IRISMandatoryTaxYear = 2024`.
+
+| Package | Endpoint | Spec |
+|---------|----------|------|
+| iris | `https://la.www4.irs.gov/iris/a2a` (prod), `https://la.alt.www4.irs.gov/iris/a2a` (AATS) | Pub 5717, Pub 5718 |
+| fire | `https://fire.irs.gov` (prod), `https://fire.test.irs.gov` (test) | Pub 1220 |
+| cfsf | n/a (routing only) | Pub 1220 Part A §10 |
+
+Form types covered (all 8): 1099-DIV, 1099-B, 1099-INT, 1099-MISC,
+1099-NEC, 1099-OID, 1099-K, 1099-R.
+
+CFSF state registry: 32 CFSF participants (AL/AZ/AR/CA/CO/CT/DE/GA/
+HI/ID/IN/KS/LA/ME/MD/MA/MI/MN/MS/MO/MT/NE/NJ/NM/NC/ND/OH/OK/SC/WI/DC/
+WV) + 19 non-participants (with per-state DOR portal references for
+the operator hand-off). `RouteToStates` returns a `routing_type` of
+`cfsf` (federal filing satisfies), `direct` (operator must file at
+state portal), or `none` (no broad state income tax).
 
 ## Pattern
 Each package follows the same structure:
