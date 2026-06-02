@@ -8,10 +8,10 @@ import (
 // Calculate runs a waterfall distribution of exit proceeds across share classes.
 //
 // The waterfall has four tiers:
-//   1. Senior liquidation preferences (paid in seniority order, pro-rata within tier if insufficient)
-//   2. Participating preferred pro-rata share of remainder (capped if ParticipationCap > 0)
-//   3. Non-participating preferred as-converted comparison (converts if better than liq pref)
-//   4. Common stock receives remainder
+//  1. Senior liquidation preferences (paid in seniority order, pro-rata within tier if insufficient)
+//  2. Participating preferred pro-rata share of remainder (capped if ParticipationCap > 0)
+//  3. Non-participating preferred as-converted comparison (converts if better than liq pref)
+//  4. Common stock receives remainder
 func Calculate(scenario ExitScenario, classes []ShareClassInput) (*WaterfallResult, error) {
 	if scenario.TotalProceeds < 0 {
 		return nil, fmt.Errorf("total_proceeds must be non-negative")

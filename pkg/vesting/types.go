@@ -14,8 +14,8 @@ const (
 type VestingType string
 
 const (
-	VestingTimeBased  VestingType = "time_based"
-	VestingMilestone  VestingType = "milestone"
+	VestingTimeBased VestingType = "time_based"
+	VestingMilestone VestingType = "milestone"
 )
 
 // Frequency defines how often vesting occurs.
@@ -60,12 +60,12 @@ const (
 
 // Schedule defines a vesting schedule with optional cliff and tranches.
 type Schedule struct {
-	ID            string       `json:"id"`
-	CompanyID     string       `json:"company_id"`
-	EquityPlanID  string       `json:"equity_plan_id,omitempty"`
-	ScheduleName  string       `json:"schedule_name"`
-	VestingTerm   string       `json:"vesting_term"` // displayed in board consent
-	ScheduleType  ScheduleType `json:"schedule_type"`
+	ID           string       `json:"id"`
+	CompanyID    string       `json:"company_id"`
+	EquityPlanID string       `json:"equity_plan_id,omitempty"`
+	ScheduleName string       `json:"schedule_name"`
+	VestingTerm  string       `json:"vesting_term"` // displayed in board consent
+	ScheduleType ScheduleType `json:"schedule_type"`
 
 	// Standard schedule fields.
 	VestingOccurs    Frequency `json:"vesting_occurs,omitempty"`
@@ -92,15 +92,15 @@ type Schedule struct {
 
 // Tranche is a single vesting period within a schedule.
 type Tranche struct {
-	ID                     string  `json:"id"`
-	ScheduleID             string  `json:"schedule_id"`
-	PeriodNumber           int     `json:"period_number"`
-	Milestone              string  `json:"milestone,omitempty"`
-	Length                 string  `json:"length"`                  // e.g. "1", "2"
-	Frequency              string  `json:"frequency"`               // e.g. "every_month"
-	Percentage             float64 `json:"percentage"`              // 0-100
-	VestingOccurs          string  `json:"vesting_occurs"`          // e.g. "same_day"
-	PerformanceConditionID string  `json:"performance_condition_id,omitempty"`
+	ID                     string    `json:"id"`
+	ScheduleID             string    `json:"schedule_id"`
+	PeriodNumber           int       `json:"period_number"`
+	Milestone              string    `json:"milestone,omitempty"`
+	Length                 string    `json:"length"`         // e.g. "1", "2"
+	Frequency              string    `json:"frequency"`      // e.g. "every_month"
+	Percentage             float64   `json:"percentage"`     // 0-100
+	VestingOccurs          string    `json:"vesting_occurs"` // e.g. "same_day"
+	PerformanceConditionID string    `json:"performance_condition_id,omitempty"`
 	CreatedAt              time.Time `json:"created_at"`
 	UpdatedAt              time.Time `json:"updated_at"`
 }
@@ -120,9 +120,9 @@ type PerformanceCondition struct {
 
 // Event records an actual vesting occurrence.
 type Event struct {
-	ID         string    `json:"id"`
-	TrancheID  string    `json:"tranche_id"`
+	ID          string    `json:"id"`
+	TrancheID   string    `json:"tranche_id"`
 	VestingDate time.Time `json:"vesting_date"`
-	Percentage float64   `json:"percentage"` // percentage vested in this event
-	CreatedAt  time.Time `json:"created_at"`
+	Percentage  float64   `json:"percentage"` // percentage vested in this event
+	CreatedAt   time.Time `json:"created_at"`
 }

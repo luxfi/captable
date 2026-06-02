@@ -47,10 +47,10 @@ const RecordLen = 750
 
 // Errors surfaced by the adapter.
 var (
-	ErrMissingTCC      = errors.New("fire: TCC is required")
-	ErrInvalidFile     = errors.New("fire: file validation failed")
-	ErrSubmissionRejected = errors.New("fire: submission rejected")
-	ErrRateLimited     = errors.New("fire: rate limited after retry budget exhausted")
+	ErrMissingTCC          = errors.New("fire: TCC is required")
+	ErrInvalidFile         = errors.New("fire: file validation failed")
+	ErrSubmissionRejected  = errors.New("fire: submission rejected")
+	ErrRateLimited         = errors.New("fire: rate limited after retry budget exhausted")
 	ErrUnsupportedFormCode = errors.New("fire: unsupported form code")
 )
 

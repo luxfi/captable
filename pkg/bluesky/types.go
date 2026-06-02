@@ -134,12 +134,12 @@ type NoticeFiling struct {
 // renewals for offerings that remain open beyond the initial 12-month
 // period.
 type RenewalFiling struct {
-	State                State           `json:"state"`
-	Issuer               Issuer          `json:"issuer"`
-	OriginalFilingID     string          `json:"original_filing_id"`
-	OriginalFilingDate   time.Time       `json:"original_filing_date"`
-	UpdatedOffering      OfferingDetails `json:"updated_offering"`
-	Signature            Signature       `json:"signature"`
+	State              State           `json:"state"`
+	Issuer             Issuer          `json:"issuer"`
+	OriginalFilingID   string          `json:"original_filing_id"`
+	OriginalFilingDate time.Time       `json:"original_filing_date"`
+	UpdatedOffering    OfferingDetails `json:"updated_offering"`
+	Signature          Signature       `json:"signature"`
 }
 
 // Signature is the signature block at the bottom of the state notice
@@ -195,25 +195,25 @@ type Acknowledgment struct {
 
 // FilingStatus is the parsed reply from GetFilingStatus.
 type FilingStatus struct {
-	FilingID    string    `json:"filing_id"`
-	State       State     `json:"state"`
-	Status      string    `json:"status"`
-	FiledAt     time.Time `json:"filed_at,omitempty"`
-	AcceptedAt  time.Time `json:"accepted_at,omitempty"`
-	ExpiresAt   time.Time `json:"expires_at,omitempty"`
-	Fee         float64   `json:"fee"`
-	Messages    []string  `json:"messages,omitempty"`
+	FilingID   string    `json:"filing_id"`
+	State      State     `json:"state"`
+	Status     string    `json:"status"`
+	FiledAt    time.Time `json:"filed_at,omitempty"`
+	AcceptedAt time.Time `json:"accepted_at,omitempty"`
+	ExpiresAt  time.Time `json:"expires_at,omitempty"`
+	Fee        float64   `json:"fee"`
+	Messages   []string  `json:"messages,omitempty"`
 }
 
 // FeeAmount is the per-state fee with the breakdown the calculator
 // returns. Returned in USD cents-as-float (e.g., 200.00 = $200.00) to
 // match the rest of the captable surface.
 type FeeAmount struct {
-	State         State   `json:"state"`
-	StateFee      float64 `json:"state_fee"`       // statutory state fee
-	SystemFee     float64 `json:"system_fee"`      // NASAA EFD system-use fee (~$160 per filing)
-	TotalDue      float64 `json:"total_due"`       // sum of state + system
-	Currency      string  `json:"currency"`        // always "USD"
-	Method        string  `json:"method"`          // "ACH" via EFD; "Check" / "Wire" for paper states
-	Notes         string  `json:"notes,omitempty"` // e.g., "lifetime cap $750"
+	State     State   `json:"state"`
+	StateFee  float64 `json:"state_fee"`       // statutory state fee
+	SystemFee float64 `json:"system_fee"`      // NASAA EFD system-use fee (~$160 per filing)
+	TotalDue  float64 `json:"total_due"`       // sum of state + system
+	Currency  string  `json:"currency"`        // always "USD"
+	Method    string  `json:"method"`          // "ACH" via EFD; "Check" / "Wire" for paper states
+	Notes     string  `json:"notes,omitempty"` // e.g., "lifetime cap $750"
 }

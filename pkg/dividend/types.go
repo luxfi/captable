@@ -18,7 +18,7 @@ const (
 
 	// Additional
 	TypeStockDividend    = "stock_dividend"
-	TypeTokenDividend    = "token_dividend"     // any ERC-20 token
+	TypeTokenDividend    = "token_dividend" // any ERC-20 token
 	TypePropertyDividend = "property_dividend"
 	TypeSpecialDividend  = "special_dividend"
 	TypeLiquidation      = "liquidation"

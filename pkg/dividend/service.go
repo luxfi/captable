@@ -106,7 +106,7 @@ func (s *Service) ProcessRecordDate(ctx context.Context, declarationID string) (
 			DeclarationID: declarationID,
 			StakeholderID: stakeholderID,
 			Shares:        shares,
-			GrossAmount:        amount,
+			GrossAmount:   amount,
 			StockShares:   stockShares,
 			NetAmount:     amount, // withholding computed separately
 			Status:        "pending",

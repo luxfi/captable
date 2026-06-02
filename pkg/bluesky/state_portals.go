@@ -168,23 +168,25 @@ func NewMassachusettsAdapter(cfg StatePortalConfig, client *http.Client, ua stri
 
 // --- StateAdapter interface ---
 
-func (a *statePortalAdapter) State() State              { return a.state }
-func (a *statePortalAdapter) SupportsElectronic() bool { return a.cfg.APIKey != "" || a.cfg.BaseURL != "" }
+func (a *statePortalAdapter) State() State { return a.state }
+func (a *statePortalAdapter) SupportsElectronic() bool {
+	return a.cfg.APIKey != "" || a.cfg.BaseURL != ""
+}
 
 // portalFilingRequest is the canonical JSON body for a state portal
 // notice filing. Concrete state portals accept this shape via their
 // public API per their published developer docs.
 type portalFilingRequest struct {
-	AccountID          string             `json:"accountId"`
-	FilingType         string             `json:"filingType"`
-	State              string             `json:"state"`
-	Issuer             portalIssuer       `json:"issuer"`
-	Offering           portalOffering     `json:"offering"`
-	Signature          portalSignature    `json:"signature"`
-	SECFileNumber      string             `json:"secFileNumber,omitempty"`
-	SECAccessionNumber string             `json:"secAccessionNumber,omitempty"`
-	FormDXMLBase64     string             `json:"formDXMLBase64,omitempty"`
-	PaymentMethod      string             `json:"paymentMethod"`
+	AccountID          string          `json:"accountId"`
+	FilingType         string          `json:"filingType"`
+	State              string          `json:"state"`
+	Issuer             portalIssuer    `json:"issuer"`
+	Offering           portalOffering  `json:"offering"`
+	Signature          portalSignature `json:"signature"`
+	SECFileNumber      string          `json:"secFileNumber,omitempty"`
+	SECAccessionNumber string          `json:"secAccessionNumber,omitempty"`
+	FormDXMLBase64     string          `json:"formDXMLBase64,omitempty"`
+	PaymentMethod      string          `json:"paymentMethod"`
 }
 
 type portalIssuer struct {

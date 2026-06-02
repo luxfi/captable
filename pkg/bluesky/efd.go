@@ -104,7 +104,7 @@ type efdStateWrapper struct {
 	state State
 }
 
-func (w *efdStateWrapper) State() State              { return w.state }
+func (w *efdStateWrapper) State() State             { return w.state }
 func (w *efdStateWrapper) SupportsElectronic() bool { return true }
 
 func (w *efdStateWrapper) FileNoticeOfSale(ctx context.Context, n *NoticeFiling) (*Acknowledgment, error) {
@@ -137,30 +137,30 @@ type efdLoginResponse struct {
 
 // efdFilingRequest is the body for POST /FormD/Submit.
 type efdFilingRequest struct {
-	State            string             `json:"state"`
-	FilingType       string             `json:"filingType"`
-	Issuer           efdIssuerPayload   `json:"issuer"`
-	Offering         efdOfferingPayload `json:"offering"`
-	Signature        efdSignaturePayload `json:"signature"`
-	SECFileNumber    string             `json:"secFileNumber,omitempty"`
-	SECAccessionNumber string           `json:"secAccessionNumber,omitempty"`
-	FormDXML         string             `json:"formDXMLBase64,omitempty"` // base64 attached if provided
+	State              string              `json:"state"`
+	FilingType         string              `json:"filingType"`
+	Issuer             efdIssuerPayload    `json:"issuer"`
+	Offering           efdOfferingPayload  `json:"offering"`
+	Signature          efdSignaturePayload `json:"signature"`
+	SECFileNumber      string              `json:"secFileNumber,omitempty"`
+	SECAccessionNumber string              `json:"secAccessionNumber,omitempty"`
+	FormDXML           string              `json:"formDXMLBase64,omitempty"` // base64 attached if provided
 }
 
 type efdIssuerPayload struct {
-	CIK            string  `json:"cik,omitempty"`
-	EntityName     string  `json:"entityName"`
-	EntityType     string  `json:"entityType"`
-	Jurisdiction   string  `json:"jurisdiction"`
-	YearOfInc      string  `json:"yearOfIncorporation,omitempty"`
-	Street1        string  `json:"street1"`
-	Street2        string  `json:"street2,omitempty"`
-	City           string  `json:"city"`
-	State          string  `json:"state"`
-	PostalCode     string  `json:"postalCode"`
-	Country        string  `json:"country"`
-	Phone          string  `json:"phone"`
-	Email          string  `json:"email,omitempty"`
+	CIK          string `json:"cik,omitempty"`
+	EntityName   string `json:"entityName"`
+	EntityType   string `json:"entityType"`
+	Jurisdiction string `json:"jurisdiction"`
+	YearOfInc    string `json:"yearOfIncorporation,omitempty"`
+	Street1      string `json:"street1"`
+	Street2      string `json:"street2,omitempty"`
+	City         string `json:"city"`
+	State        string `json:"state"`
+	PostalCode   string `json:"postalCode"`
+	Country      string `json:"country"`
+	Phone        string `json:"phone"`
+	Email        string `json:"email,omitempty"`
 }
 
 type efdOfferingPayload struct {
@@ -193,10 +193,10 @@ type efdFilingResponse struct {
 
 // efdRenewalRequest is the body for POST /FormD/Renew.
 type efdRenewalRequest struct {
-	State            string             `json:"state"`
-	OriginalFilingID string             `json:"originalFilingId"`
-	Issuer           efdIssuerPayload   `json:"issuer"`
-	Offering         efdOfferingPayload `json:"offering"`
+	State            string              `json:"state"`
+	OriginalFilingID string              `json:"originalFilingId"`
+	Issuer           efdIssuerPayload    `json:"issuer"`
+	Offering         efdOfferingPayload  `json:"offering"`
 	Signature        efdSignaturePayload `json:"signature"`
 }
 

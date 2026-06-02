@@ -41,12 +41,12 @@ func (f *fakeFormDFiler) AmendFormD(_ context.Context, _ any) (string, string, e
 
 // fakeBlueSkyFiler implements BlueSkyFiler in-memory.
 type fakeBlueSkyFiler struct {
-	fileCalls   atomic.Int32
-	renewCalls  atomic.Int32
-	feeCalls    atomic.Int32
-	status      string
-	fee         float64
-	err         error
+	fileCalls  atomic.Int32
+	renewCalls atomic.Int32
+	feeCalls   atomic.Int32
+	status     string
+	fee        float64
+	err        error
 }
 
 func (f *fakeBlueSkyFiler) FileNoticeOfSale(_ context.Context, _ string, _ any) (string, string, float64, error) {

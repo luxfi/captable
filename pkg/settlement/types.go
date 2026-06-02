@@ -6,13 +6,13 @@ import "time"
 type IssuerType string
 
 const (
-	IssuerCorporation         IssuerType = "corporation"
-	IssuerLLC                 IssuerType = "llc"
-	IssuerTrust               IssuerType = "trust"
-	IssuerPartnership         IssuerType = "partnership"
-	IssuerSoleProprietorship  IssuerType = "sole_proprietorship"
-	IssuerPublicCompany       IssuerType = "public_company"
-	IssuerSPV                 IssuerType = "spv"
+	IssuerCorporation        IssuerType = "corporation"
+	IssuerLLC                IssuerType = "llc"
+	IssuerTrust              IssuerType = "trust"
+	IssuerPartnership        IssuerType = "partnership"
+	IssuerSoleProprietorship IssuerType = "sole_proprietorship"
+	IssuerPublicCompany      IssuerType = "public_company"
+	IssuerSPV                IssuerType = "spv"
 )
 
 // SecurityClass is the classification of the traded security.
@@ -39,27 +39,27 @@ type TradeStatus string
 
 const (
 	TradeStatusPendingComplianceClearance TradeStatus = "pending_compliance_clearance"
-	TradeStatusPendingTransfer           TradeStatus = "pending_transfer"
-	TradeStatusExecuted                  TradeStatus = "executed"
-	TradeStatusFailed                    TradeStatus = "failed"
-	TradeStatusCancelled                 TradeStatus = "cancelled"
+	TradeStatusPendingTransfer            TradeStatus = "pending_transfer"
+	TradeStatusExecuted                   TradeStatus = "executed"
+	TradeStatusFailed                     TradeStatus = "failed"
+	TradeStatusCancelled                  TradeStatus = "cancelled"
 )
 
 // CommissionType indicates how a commission is calculated.
 type CommissionType string
 
 const (
-	CommissionFlatFee          CommissionType = "flat_fee"
-	CommissionPercentageGross  CommissionType = "percentage_of_gross"
-	CommissionPerShare         CommissionType = "per_share"
+	CommissionFlatFee         CommissionType = "flat_fee"
+	CommissionPercentageGross CommissionType = "percentage_of_gross"
+	CommissionPerShare        CommissionType = "per_share"
 )
 
 // SettlementType is the method of trade settlement.
 type SettlementType string
 
 const (
-	SettlementBilateral   SettlementType = "bilateral"
-	SettlementDVP         SettlementType = "dvp"
+	SettlementBilateral    SettlementType = "bilateral"
+	SettlementDVP          SettlementType = "dvp"
 	SettlementFreeDelivery SettlementType = "free_delivery"
 )
 
@@ -163,27 +163,27 @@ type ComplianceRef struct {
 
 // SecondaryTrade is a cross-broker-dealer secondary market trade.
 type SecondaryTrade struct {
-	TransactionID    string           `json:"transaction_id"`
-	TransactionType  TransactionType  `json:"transaction_type"`
-	Status           TradeStatus      `json:"status"`
-	Security         SecurityDetail   `json:"security"`
-	BuyerInvestorID  string           `json:"buyer_investor_id"`
-	SellerInvestorID string           `json:"seller_investor_id"`
-	BuyerAccountID   string           `json:"buyer_account_id"`
-	SellerAccountID  string           `json:"seller_account_id"`
-	BuyerBD          BrokerDealer     `json:"buyer_broker_dealer"`
-	SellerBD         BrokerDealer     `json:"seller_broker_dealer"`
-	BuyerCompliance  ComplianceRef    `json:"buyer_compliance_ref"`
-	SellerCompliance ComplianceRef    `json:"seller_compliance_ref"`
-	TransferAgent    TransferAgent    `json:"transfer_agent"`
-	TransferAgentAck TransferAgentAck `json:"transfer_agent_ack"`
-	Commissions      TradeCommissions `json:"commissions"`
-	Settlement       TradeSettlement  `json:"settlement"`
+	TransactionID    string            `json:"transaction_id"`
+	TransactionType  TransactionType   `json:"transaction_type"`
+	Status           TradeStatus       `json:"status"`
+	Security         SecurityDetail    `json:"security"`
+	BuyerInvestorID  string            `json:"buyer_investor_id"`
+	SellerInvestorID string            `json:"seller_investor_id"`
+	BuyerAccountID   string            `json:"buyer_account_id"`
+	SellerAccountID  string            `json:"seller_account_id"`
+	BuyerBD          BrokerDealer      `json:"buyer_broker_dealer"`
+	SellerBD         BrokerDealer      `json:"seller_broker_dealer"`
+	BuyerCompliance  ComplianceRef     `json:"buyer_compliance_ref"`
+	SellerCompliance ComplianceRef     `json:"seller_compliance_ref"`
+	TransferAgent    TransferAgent     `json:"transfer_agent"`
+	TransferAgentAck TransferAgentAck  `json:"transfer_agent_ack"`
+	Commissions      TradeCommissions  `json:"commissions"`
+	Settlement       TradeSettlement   `json:"settlement"`
 	Restrictions     TradeRestrictions `json:"restrictions"`
-	BlockchainTxHash string           `json:"blockchain_tx_hash,omitempty"`
-	Description      string           `json:"description"`
-	InitiatedAt      time.Time        `json:"initiated_at"`
-	ExecutedAt       *time.Time       `json:"executed_at,omitempty"`
+	BlockchainTxHash string            `json:"blockchain_tx_hash,omitempty"`
+	Description      string            `json:"description"`
+	InitiatedAt      time.Time         `json:"initiated_at"`
+	ExecutedAt       *time.Time        `json:"executed_at,omitempty"`
 }
 
 // WebhookRecipient is a party notified via webhook of trade events.

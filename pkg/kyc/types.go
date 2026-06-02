@@ -43,19 +43,19 @@ const (
 
 // Submission represents a KYC/KYB submission for a stakeholder.
 type Submission struct {
-	ID            string           `json:"id"`
-	StakeholderID string           `json:"stakeholder_id"`
-	CompanyID     string           `json:"company_id"`
-	Type          SubmissionType   `json:"type"`
-	Status        SubmissionStatus `json:"status"`
-	ProviderID    string           `json:"provider_id,omitempty"`    // external provider reference
-	ProviderName  string           `json:"provider_name,omitempty"` // e.g. "simplici"
-	SubmittedAt   time.Time        `json:"submitted_at"`
-	ReviewedAt    *time.Time       `json:"reviewed_at,omitempty"`
-	ExpiresAt     *time.Time       `json:"expires_at,omitempty"`
-	RejectionReason string         `json:"rejection_reason,omitempty"`
-	CreatedAt     time.Time        `json:"created_at"`
-	UpdatedAt     time.Time        `json:"updated_at"`
+	ID              string           `json:"id"`
+	StakeholderID   string           `json:"stakeholder_id"`
+	CompanyID       string           `json:"company_id"`
+	Type            SubmissionType   `json:"type"`
+	Status          SubmissionStatus `json:"status"`
+	ProviderID      string           `json:"provider_id,omitempty"`   // external provider reference
+	ProviderName    string           `json:"provider_name,omitempty"` // e.g. "simplici"
+	SubmittedAt     time.Time        `json:"submitted_at"`
+	ReviewedAt      *time.Time       `json:"reviewed_at,omitempty"`
+	ExpiresAt       *time.Time       `json:"expires_at,omitempty"`
+	RejectionReason string           `json:"rejection_reason,omitempty"`
+	CreatedAt       time.Time        `json:"created_at"`
+	UpdatedAt       time.Time        `json:"updated_at"`
 }
 
 // AMLScreening represents an anti-money laundering screening result.
@@ -74,19 +74,19 @@ type AMLScreening struct {
 
 // AccreditationVerification records a verified accreditation check.
 type AccreditationVerification struct {
-	ID            string              `json:"id"`
-	StakeholderID string              `json:"stakeholder_id"`
-	CompanyID     string              `json:"company_id"`
-	Status        SubmissionStatus    `json:"status"`
-	Method        AccreditationMethod `json:"method"`
-	ProviderID    string              `json:"provider_id,omitempty"`
-	ProviderName  string              `json:"provider_name,omitempty"`
-	DocumentID    string              `json:"document_id,omitempty"` // reference to uploaded proof
-	IsQualifiedPurchaser bool         `json:"is_qualified_purchaser"`
-	VerifiedAt    *time.Time          `json:"verified_at,omitempty"`
-	ExpiresAt     *time.Time          `json:"expires_at,omitempty"`
-	CreatedAt     time.Time           `json:"created_at"`
-	UpdatedAt     time.Time           `json:"updated_at"`
+	ID                   string              `json:"id"`
+	StakeholderID        string              `json:"stakeholder_id"`
+	CompanyID            string              `json:"company_id"`
+	Status               SubmissionStatus    `json:"status"`
+	Method               AccreditationMethod `json:"method"`
+	ProviderID           string              `json:"provider_id,omitempty"`
+	ProviderName         string              `json:"provider_name,omitempty"`
+	DocumentID           string              `json:"document_id,omitempty"` // reference to uploaded proof
+	IsQualifiedPurchaser bool                `json:"is_qualified_purchaser"`
+	VerifiedAt           *time.Time          `json:"verified_at,omitempty"`
+	ExpiresAt            *time.Time          `json:"expires_at,omitempty"`
+	CreatedAt            time.Time           `json:"created_at"`
+	UpdatedAt            time.Time           `json:"updated_at"`
 }
 
 // Provider is the interface for external KYC/AML providers.
