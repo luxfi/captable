@@ -34,22 +34,22 @@ type Address struct {
 
 // Accreditation tracks whether a stakeholder is an accredited investor.
 type Accreditation struct {
-	IsAccredited      bool       `json:"is_accredited"`
-	Method            string     `json:"method,omitempty"`    // income, net_worth, professional, entity
-	VerifiedAt        *time.Time `json:"verified_at,omitempty"`
-	ExpiresAt         *time.Time `json:"expires_at,omitempty"`
-	VerificationDoc   string     `json:"verification_doc,omitempty"`
-	QualifiedPurchaser bool      `json:"qualified_purchaser,omitempty"`
+	IsAccredited       bool       `json:"is_accredited"`
+	Method             string     `json:"method,omitempty"` // income, net_worth, professional, entity
+	VerifiedAt         *time.Time `json:"verified_at,omitempty"`
+	ExpiresAt          *time.Time `json:"expires_at,omitempty"`
+	VerificationDoc    string     `json:"verification_doc,omitempty"`
+	QualifiedPurchaser bool       `json:"qualified_purchaser,omitempty"`
 }
 
 // Holding is a computed view of a stakeholder's position across all share classes.
 type Holding struct {
-	StakeholderID    string           `json:"stakeholder_id"`
-	CompanyID        string           `json:"company_id"`
-	TotalShares      int64            `json:"total_shares"`
-	TotalValue       float64          `json:"total_value"`
-	OwnershipPercent float64          `json:"ownership_percent"`
-	ByClass          []ClassHolding   `json:"by_class"`
+	StakeholderID    string         `json:"stakeholder_id"`
+	CompanyID        string         `json:"company_id"`
+	TotalShares      int64          `json:"total_shares"`
+	TotalValue       float64        `json:"total_value"`
+	OwnershipPercent float64        `json:"ownership_percent"`
+	ByClass          []ClassHolding `json:"by_class"`
 }
 
 // ClassHolding is a per-share-class holding for a stakeholder.

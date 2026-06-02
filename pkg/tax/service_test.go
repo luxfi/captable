@@ -9,10 +9,10 @@ import (
 )
 
 type memRepo struct {
-	mu       sync.RWMutex
-	divs     map[string]*Form1099DIV
-	bs       map[string]*Form1099B
-	k1s      map[string]*ScheduleK1
+	mu   sync.RWMutex
+	divs map[string]*Form1099DIV
+	bs   map[string]*Form1099B
+	k1s  map[string]*ScheduleK1
 }
 
 func newMemRepo() *memRepo {
@@ -155,7 +155,7 @@ func TestGenerate1099DIV(t *testing.T) {
 func TestGenerate1099DIVMissingRecipient(t *testing.T) {
 	repo := newMemRepo()
 	divProv := &stubDividends{data: map[string]float64{
-		"sh1": 500.00,
+		"sh1":        500.00,
 		"sh_missing": 200.00, // no recipient info
 	}}
 	svc := NewService(repo, divProv)

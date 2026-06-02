@@ -50,12 +50,12 @@ func (s *stubFIRE) SubmitFile(_ context.Context, f *fire.FIREFile) (*fire.Acknow
 func TestSubmitForm_RoutesToIRIS_TY2024(t *testing.T) {
 	si := &stubIRIS{}
 	res, err := SubmitForm(context.Background(), &Form1099DIV{
-		TaxYear:           2025,
-		PayerName:         "ACME",
-		PayerEIN:          "987654321",
-		RecipientName:     "DOE JANE",
-		RecipientTIN:      "111-22-3333",
-		OrdinaryDividends: 5000.00,
+		TaxYear:            2025,
+		PayerName:          "ACME",
+		PayerEIN:           "987654321",
+		RecipientName:      "DOE JANE",
+		RecipientTIN:       "111-22-3333",
+		OrdinaryDividends:  5000.00,
 		FederalTaxWithheld: 750.00,
 	}, SubmissionOptions{IRIS: si})
 	if err != nil {
@@ -102,9 +102,9 @@ func TestSubmitForm_RoutesToFIRE_LegacyYear(t *testing.T) {
 func TestSubmitForm_ForceLegacyFIRE(t *testing.T) {
 	sf := &stubFIRE{}
 	res, err := SubmitForm(context.Background(), &Form1099DIV{
-		TaxYear:   2025, // post-IRIS-mandatory but forced to FIRE
-		PayerName: "ACME",
-		PayerEIN:  "987654321",
+		TaxYear:       2025, // post-IRIS-mandatory but forced to FIRE
+		PayerName:     "ACME",
+		PayerEIN:      "987654321",
 		RecipientName: "X",
 		RecipientTIN:  "111223333",
 	}, SubmissionOptions{

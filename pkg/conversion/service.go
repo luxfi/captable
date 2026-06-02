@@ -69,16 +69,16 @@ func ConvertSAFE(safe SAFE, trigger ConversionTrigger) (*ConversionResult, error
 	}
 
 	return &ConversionResult{
-		InstrumentID:      safe.ID,
-		InstrumentType:    "safe",
-		InvestorID:        safe.InvestorID,
+		InstrumentID:       safe.ID,
+		InstrumentType:     "safe",
+		InvestorID:         safe.InvestorID,
 		OriginalInvestment: safe.InvestmentAmount,
-		ConvertedAmount:   safe.InvestmentAmount,
-		SharesIssued:      shares,
-		PricePerShare:     effectivePrice,
-		EffectiveDiscount: effectiveDiscount,
-		ShareClassName:    "SAFE Preferred",
-		Method:            method,
+		ConvertedAmount:    safe.InvestmentAmount,
+		SharesIssued:       shares,
+		PricePerShare:      effectivePrice,
+		EffectiveDiscount:  effectiveDiscount,
+		ShareClassName:     "SAFE Preferred",
+		Method:             method,
 	}, nil
 }
 
@@ -141,16 +141,16 @@ func ConvertNote(note ConvertibleNote, trigger ConversionTrigger) (*ConversionRe
 	}
 
 	return &ConversionResult{
-		InstrumentID:      note.ID,
-		InstrumentType:    "note",
-		InvestorID:        note.InvestorID,
+		InstrumentID:       note.ID,
+		InstrumentType:     "note",
+		InvestorID:         note.InvestorID,
 		OriginalInvestment: note.PrincipalAmount,
-		ConvertedAmount:   convertedAmount,
-		SharesIssued:      shares,
-		PricePerShare:     effectivePrice,
-		EffectiveDiscount: effectiveDiscount,
-		ShareClassName:    "Note Preferred",
-		Method:            method,
+		ConvertedAmount:    convertedAmount,
+		SharesIssued:       shares,
+		PricePerShare:      effectivePrice,
+		EffectiveDiscount:  effectiveDiscount,
+		ShareClassName:     "Note Preferred",
+		Method:             method,
 	}, nil
 }
 

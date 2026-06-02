@@ -166,10 +166,10 @@ type Config struct {
 
 // Client is the IRIS A2A e-file submission client.
 type Client struct {
-	cfg      Config
-	client   *http.Client
-	rand     *rand.Rand
-	baseURL  string
+	cfg     Config
+	client  *http.Client
+	rand    *rand.Rand
+	baseURL string
 
 	// jwt is the bearer token returned by Authenticate; set on
 	// successful exchange and refreshed on 401.
@@ -978,12 +978,12 @@ func parseAcknowledgment(body []byte) (*Acknowledgment, error) {
 }
 
 type xmlAck struct {
-	XMLName     xml.Name `xml:"Acknowledgment"`
-	ReceiptID   string   `xml:"ReceiptID"`
-	Status      string   `xml:"Status"`
-	SubmittedAt string   `xml:"SubmittedAt"`
+	XMLName     xml.Name      `xml:"Acknowledgment"`
+	ReceiptID   string        `xml:"ReceiptID"`
+	Status      string        `xml:"Status"`
+	SubmittedAt string        `xml:"SubmittedAt"`
 	Errors      []xmlAckError `xml:"Errors>Error"`
-	Messages    []string `xml:"Messages>Message"`
+	Messages    []string      `xml:"Messages>Message"`
 }
 
 type xmlAckError struct {
@@ -1020,11 +1020,11 @@ func parseXMLAck(body []byte) (*Acknowledgment, error) {
 }
 
 type jsonAck struct {
-	ReceiptID   string `json:"receipt_id"`
-	Status      string `json:"status"`
-	SubmittedAt string `json:"submitted_at"`
+	ReceiptID   string         `json:"receipt_id"`
+	Status      string         `json:"status"`
+	SubmittedAt string         `json:"submitted_at"`
 	Errors      []jsonAckError `json:"errors"`
-	Messages    []string `json:"messages"`
+	Messages    []string       `json:"messages"`
 }
 
 type jsonAckError struct {
@@ -1073,13 +1073,13 @@ func parseStatus(body []byte) (*Status, error) {
 }
 
 type xmlStatus struct {
-	XMLName     xml.Name `xml:"Status"`
-	ReceiptID   string   `xml:"ReceiptID"`
-	State       string   `xml:"Status"` // re-named to State to avoid wire name collision when embedded
-	AcceptedAt  string   `xml:"AcceptedAt"`
-	RejectedAt  string   `xml:"RejectedAt"`
-	AcceptedCnt int      `xml:"AcceptedCnt"`
-	RejectedCnt int      `xml:"RejectedCnt"`
+	XMLName     xml.Name      `xml:"Status"`
+	ReceiptID   string        `xml:"ReceiptID"`
+	State       string        `xml:"Status"` // re-named to State to avoid wire name collision when embedded
+	AcceptedAt  string        `xml:"AcceptedAt"`
+	RejectedAt  string        `xml:"RejectedAt"`
+	AcceptedCnt int           `xml:"AcceptedCnt"`
+	RejectedCnt int           `xml:"RejectedCnt"`
 	Errors      []xmlAckError `xml:"Errors>Error"`
 }
 
@@ -1174,7 +1174,7 @@ func parseSubmissions(body []byte) ([]*Submission, error) {
 	}
 	// XML list — unmarshal into a wrapper.
 	type wirelist struct {
-		XMLName     xml.Name       `xml:"Submissions"`
+		XMLName     xml.Name         `xml:"Submissions"`
 		Submissions []wireSubmission `xml:"Submission"`
 	}
 	var wl wirelist

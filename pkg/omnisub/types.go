@@ -6,9 +6,9 @@ import "time"
 type AccountStatus string
 
 const (
-	StatusActive   AccountStatus = "active"
+	StatusActive    AccountStatus = "active"
 	StatusSuspended AccountStatus = "suspended"
-	StatusClosed   AccountStatus = "closed"
+	StatusClosed    AccountStatus = "closed"
 )
 
 // OrderSide is buy or sell.
@@ -43,13 +43,13 @@ const (
 
 // OmnibusAccount is the master account that holds positions on behalf of sub-accounts.
 type OmnibusAccount struct {
-	ID         string        `json:"id"`
-	CompanyID  string        `json:"company_id"`
-	Name       string        `json:"name"`
-	CustodianID string       `json:"custodian_id,omitempty"` // external custodian reference
-	Status     AccountStatus `json:"status"`
-	CreatedAt  time.Time     `json:"created_at"`
-	UpdatedAt  time.Time     `json:"updated_at"`
+	ID          string        `json:"id"`
+	CompanyID   string        `json:"company_id"`
+	Name        string        `json:"name"`
+	CustodianID string        `json:"custodian_id,omitempty"` // external custodian reference
+	Status      AccountStatus `json:"status"`
+	CreatedAt   time.Time     `json:"created_at"`
+	UpdatedAt   time.Time     `json:"updated_at"`
 }
 
 // SubAccount is an individual stakeholder's account within an omnibus account.
@@ -92,15 +92,15 @@ type Order struct {
 
 // CorporateAction records a corporate event applied to positions.
 type CorporateAction struct {
-	ID           string              `json:"id"`
-	SecurityID   string              `json:"security_id"`
-	Type         CorporateActionType `json:"type"`
-	Description  string              `json:"description"`
-	RecordDate   time.Time           `json:"record_date"`
-	EffectiveDate time.Time          `json:"effective_date"`
-	Ratio        *float64            `json:"ratio,omitempty"`         // for splits
-	AmountPerShare *float64          `json:"amount_per_share,omitempty"` // for dividends
-	CreatedAt    time.Time           `json:"created_at"`
+	ID             string              `json:"id"`
+	SecurityID     string              `json:"security_id"`
+	Type           CorporateActionType `json:"type"`
+	Description    string              `json:"description"`
+	RecordDate     time.Time           `json:"record_date"`
+	EffectiveDate  time.Time           `json:"effective_date"`
+	Ratio          *float64            `json:"ratio,omitempty"`            // for splits
+	AmountPerShare *float64            `json:"amount_per_share,omitempty"` // for dividends
+	CreatedAt      time.Time           `json:"created_at"`
 }
 
 // TaxLot tracks cost basis for a specific acquisition of shares.
@@ -116,14 +116,14 @@ type TaxLot struct {
 
 // TaxStatement is a yearly tax summary for a sub-account.
 type TaxStatement struct {
-	ID           string    `json:"id"`
-	SubAccountID string    `json:"sub_account_id"`
-	TaxYear      int       `json:"tax_year"`
-	FormType     string    `json:"form_type"` // 1099-B, 1099-DIV, K-1
-	TotalGains   float64   `json:"total_gains"`
-	TotalLosses  float64   `json:"total_losses"`
-	TotalDividends float64 `json:"total_dividends"`
-	DocumentID   string    `json:"document_id,omitempty"` // generated PDF reference
-	GeneratedAt  time.Time `json:"generated_at"`
-	CreatedAt    time.Time `json:"created_at"`
+	ID             string    `json:"id"`
+	SubAccountID   string    `json:"sub_account_id"`
+	TaxYear        int       `json:"tax_year"`
+	FormType       string    `json:"form_type"` // 1099-B, 1099-DIV, K-1
+	TotalGains     float64   `json:"total_gains"`
+	TotalLosses    float64   `json:"total_losses"`
+	TotalDividends float64   `json:"total_dividends"`
+	DocumentID     string    `json:"document_id,omitempty"` // generated PDF reference
+	GeneratedAt    time.Time `json:"generated_at"`
+	CreatedAt      time.Time `json:"created_at"`
 }

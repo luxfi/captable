@@ -8,13 +8,13 @@ import (
 
 // memRepo is an in-memory Repository for testing.
 type memRepo struct {
-	mu             sync.RWMutex
-	companies      map[string]*Company
-	shareClasses   map[string]*ShareClass
-	entries        map[string]*Entry
-	vesting        map[string]*VestingSchedule
-	optionGrants   map[string]*OptionGrant
-	equityPlans    map[string]*EquityPlan
+	mu           sync.RWMutex
+	companies    map[string]*Company
+	shareClasses map[string]*ShareClass
+	entries      map[string]*Entry
+	vesting      map[string]*VestingSchedule
+	optionGrants map[string]*OptionGrant
+	equityPlans  map[string]*EquityPlan
 }
 
 func newMemRepo() *memRepo {
