@@ -197,7 +197,7 @@ func TestRouteToStates_NilSubmission(t *testing.T) {
 
 // Conformance test required by task spec:
 // "CFSF state routing for 5 representative CFSF participants (CA, NY, TX, FL, MA)
-//  + 2 non-CFSF (e.g., DE, ID)"
+//   - 2 non-CFSF (e.g., DE, ID)"
 //
 // Wait — task said "CA, NY, TX, FL, MA" but NY/TX/FL are not CFSF
 // participants. The 5 representative CFSF participants we test are

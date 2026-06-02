@@ -113,28 +113,28 @@ func validateFormD(fd *FormDFiling, amend bool) error {
 // element name "edgarSubmission" matches the SEC's published Form D
 // schema.
 type edgarSubmission struct {
-	XMLName             xml.Name              `xml:"edgarSubmission"`
-	SchemaVersion       string                `xml:"schemaVersion,attr"`
-	SubmissionType      SubmissionType        `xml:"submissionType"`
-	TestOrLive          string                `xml:"testOrLive"`
-	PrimaryIssuer       xmlIssuer             `xml:"primaryIssuer"`
-	RelatedIssuersList  *xmlRelatedIssuers    `xml:"relatedIssuersList,omitempty"`
-	RelatedPersonsList  xmlRelatedPersonsList `xml:"relatedPersonsList"`
-	OfferingData        xmlOfferingData       `xml:"offeringData"`
-	IsAmendment         bool                  `xml:"isAmendment"`
-	PreviousAccession   string                `xml:"previousAccessionNumber,omitempty"`
+	XMLName            xml.Name              `xml:"edgarSubmission"`
+	SchemaVersion      string                `xml:"schemaVersion,attr"`
+	SubmissionType     SubmissionType        `xml:"submissionType"`
+	TestOrLive         string                `xml:"testOrLive"`
+	PrimaryIssuer      xmlIssuer             `xml:"primaryIssuer"`
+	RelatedIssuersList *xmlRelatedIssuers    `xml:"relatedIssuersList,omitempty"`
+	RelatedPersonsList xmlRelatedPersonsList `xml:"relatedPersonsList"`
+	OfferingData       xmlOfferingData       `xml:"offeringData"`
+	IsAmendment        bool                  `xml:"isAmendment"`
+	PreviousAccession  string                `xml:"previousAccessionNumber,omitempty"`
 }
 
 type xmlIssuer struct {
-	CIK                         string  `xml:"cik"`
-	EntityName                  string  `xml:"entityName"`
-	IssuerAddress               Address `xml:"issuerAddress"`
-	IssuerPhoneNumber           string  `xml:"issuerPhoneNumber"`
-	JurisdictionOfInc           string  `xml:"jurisdictionOfInc"`
-	IssuerPreviousNameList      *xmlPrevNames `xml:"issuerPreviousNameList,omitempty"`
-	EdgarPreviousNameList       *xmlPrevNames `xml:"edgarPreviousNameList,omitempty"`
-	EntityType                  EntityType `xml:"entityType"`
-	YearOfInc                   xmlYearOfInc `xml:"yearOfInc"`
+	CIK                    string        `xml:"cik"`
+	EntityName             string        `xml:"entityName"`
+	IssuerAddress          Address       `xml:"issuerAddress"`
+	IssuerPhoneNumber      string        `xml:"issuerPhoneNumber"`
+	JurisdictionOfInc      string        `xml:"jurisdictionOfInc"`
+	IssuerPreviousNameList *xmlPrevNames `xml:"issuerPreviousNameList,omitempty"`
+	EdgarPreviousNameList  *xmlPrevNames `xml:"edgarPreviousNameList,omitempty"`
+	EntityType             EntityType    `xml:"entityType"`
+	YearOfInc              xmlYearOfInc  `xml:"yearOfInc"`
 }
 
 type xmlPrevNames struct {
@@ -157,10 +157,10 @@ type xmlRelatedPersonsList struct {
 }
 
 type xmlRelatedPerson struct {
-	RelatedPersonName    xmlPersonName    `xml:"relatedPersonName"`
-	RelatedPersonAddress Address          `xml:"relatedPersonAddress"`
+	RelatedPersonName             xmlPersonName       `xml:"relatedPersonName"`
+	RelatedPersonAddress          Address             `xml:"relatedPersonAddress"`
 	RelatedPersonRelationshipList xmlRelationshipList `xml:"relatedPersonRelationshipList"`
-	RelationshipClarification string `xml:"relationshipClarification,omitempty"`
+	RelationshipClarification     string              `xml:"relationshipClarification,omitempty"`
 }
 
 type xmlPersonName struct {
@@ -174,31 +174,31 @@ type xmlRelationshipList struct {
 }
 
 type xmlOfferingData struct {
-	IndustryGroup                 xmlIndustryGroup            `xml:"industryGroup"`
-	IssuerSize                    xmlIssuerSize               `xml:"issuerSize"`
-	FederalExemptionsExclusions   xmlExemptions               `xml:"federalExemptionsExclusions"`
-	TypeOfFiling                  xmlTypeOfFiling             `xml:"typeOfFiling"`
-	DateOfFirstSale               xmlDateOfFirstSale          `xml:"dateOfFirstSale"`
-	MoreThanOneYear               bool                        `xml:"moreThanOneYear"`
-	TypesOfSecuritiesOffered      xmlTypesOfSecurities        `xml:"typesOfSecuritiesOffered"`
-	BusinessCombinationTransaction xmlBusinessCombination     `xml:"businessCombinationTransaction"`
-	MinimumInvestmentAccepted     float64                     `xml:"minimumInvestmentAccepted"`
-	SalesCompensationList         *xmlSalesCompensationList   `xml:"salesCompensationList,omitempty"`
-	OfferingSalesAmounts          xmlOfferingSalesAmounts     `xml:"offeringSalesAmounts"`
-	InvestorsInfo                 xmlInvestorsInfo            `xml:"investorsInfo"`
-	SalesCommissionsFindersFees   xmlSalesCommissionsFindersFees `xml:"salesCommissionsFindersFeesExpenses"`
-	UseOfProceeds                 xmlUseOfProceeds            `xml:"useOfProceeds"`
-	SignatureBlock                xmlSignatureBlock           `xml:"signatureBlock"`
+	IndustryGroup                  xmlIndustryGroup               `xml:"industryGroup"`
+	IssuerSize                     xmlIssuerSize                  `xml:"issuerSize"`
+	FederalExemptionsExclusions    xmlExemptions                  `xml:"federalExemptionsExclusions"`
+	TypeOfFiling                   xmlTypeOfFiling                `xml:"typeOfFiling"`
+	DateOfFirstSale                xmlDateOfFirstSale             `xml:"dateOfFirstSale"`
+	MoreThanOneYear                bool                           `xml:"moreThanOneYear"`
+	TypesOfSecuritiesOffered       xmlTypesOfSecurities           `xml:"typesOfSecuritiesOffered"`
+	BusinessCombinationTransaction xmlBusinessCombination         `xml:"businessCombinationTransaction"`
+	MinimumInvestmentAccepted      float64                        `xml:"minimumInvestmentAccepted"`
+	SalesCompensationList          *xmlSalesCompensationList      `xml:"salesCompensationList,omitempty"`
+	OfferingSalesAmounts           xmlOfferingSalesAmounts        `xml:"offeringSalesAmounts"`
+	InvestorsInfo                  xmlInvestorsInfo               `xml:"investorsInfo"`
+	SalesCommissionsFindersFees    xmlSalesCommissionsFindersFees `xml:"salesCommissionsFindersFeesExpenses"`
+	UseOfProceeds                  xmlUseOfProceeds               `xml:"useOfProceeds"`
+	SignatureBlock                 xmlSignatureBlock              `xml:"signatureBlock"`
 }
 
 type xmlIndustryGroup struct {
-	IndustryGroupType         IndustryGroup `xml:"industryGroupType"`
-	InvestmentFundType        string        `xml:"investmentFundType,omitempty"`
-	Is40ActInvestmentCompany  bool          `xml:"is40Act,omitempty"`
+	IndustryGroupType        IndustryGroup `xml:"industryGroupType"`
+	InvestmentFundType       string        `xml:"investmentFundType,omitempty"`
+	Is40ActInvestmentCompany bool          `xml:"is40Act,omitempty"`
 }
 
 type xmlIssuerSize struct {
-	RevenueRange     string `xml:"revenueRange,omitempty"`
+	RevenueRange      string `xml:"revenueRange,omitempty"`
 	AggregateNAVRange string `xml:"aggregateNetAssetValueRange,omitempty"`
 }
 
@@ -207,8 +207,8 @@ type xmlExemptions struct {
 }
 
 type xmlTypeOfFiling struct {
-	NewFiling   xmlNewFiling   `xml:"newFiling"`
-	Amendment   xmlAmendment   `xml:"amendment"`
+	NewFiling xmlNewFiling `xml:"newFiling"`
+	Amendment xmlAmendment `xml:"amendment"`
 }
 
 type xmlNewFiling struct {
@@ -226,15 +226,15 @@ type xmlDateOfFirstSale struct {
 }
 
 type xmlTypesOfSecurities struct {
-	IsEquityType       bool `xml:"isEquityType,omitempty"`
-	IsDebtType         bool `xml:"isDebtType,omitempty"`
-	IsOptionToAcquireType bool `xml:"isOptionToAcquireType,omitempty"`
-	IsSecurityToBeAcquiredType bool `xml:"isSecurityToBeAcquiredType,omitempty"`
-	IsPooledInvestmentFundType bool `xml:"isPooledInvestmentFundType,omitempty"`
-	IsTenantInCommonType bool `xml:"isTenantInCommonType,omitempty"`
-	IsMineralPropertyType bool `xml:"isMineralPropertyType,omitempty"`
-	IsOtherType         bool   `xml:"isOtherType,omitempty"`
-	DescriptionOfOther  string `xml:"descriptionOfOther,omitempty"`
+	IsEquityType               bool   `xml:"isEquityType,omitempty"`
+	IsDebtType                 bool   `xml:"isDebtType,omitempty"`
+	IsOptionToAcquireType      bool   `xml:"isOptionToAcquireType,omitempty"`
+	IsSecurityToBeAcquiredType bool   `xml:"isSecurityToBeAcquiredType,omitempty"`
+	IsPooledInvestmentFundType bool   `xml:"isPooledInvestmentFundType,omitempty"`
+	IsTenantInCommonType       bool   `xml:"isTenantInCommonType,omitempty"`
+	IsMineralPropertyType      bool   `xml:"isMineralPropertyType,omitempty"`
+	IsOtherType                bool   `xml:"isOtherType,omitempty"`
+	DescriptionOfOther         string `xml:"descriptionOfOther,omitempty"`
 }
 
 type xmlBusinessCombination struct {
@@ -247,30 +247,30 @@ type xmlSalesCompensationList struct {
 }
 
 type xmlRecipient struct {
-	RecipientName    string  `xml:"recipientName"`
-	RecipientCRDNumber string `xml:"recipientCRDNumber,omitempty"`
-	Address          Address `xml:"recipientAddress"`
+	RecipientName        string   `xml:"recipientName"`
+	RecipientCRDNumber   string   `xml:"recipientCRDNumber,omitempty"`
+	Address              Address  `xml:"recipientAddress"`
 	StatesOfSolicitation []string `xml:"statesOfSolicitationList>state,omitempty"`
 }
 
 type xmlOfferingSalesAmounts struct {
-	TotalOfferingAmount      string  `xml:"totalOfferingAmount"`
-	TotalAmountSold          float64 `xml:"totalAmountSold"`
-	TotalRemaining           string  `xml:"totalRemaining"`
-	Clarification            string  `xml:"clarificationOfResponse,omitempty"`
+	TotalOfferingAmount string  `xml:"totalOfferingAmount"`
+	TotalAmountSold     float64 `xml:"totalAmountSold"`
+	TotalRemaining      string  `xml:"totalRemaining"`
+	Clarification       string  `xml:"clarificationOfResponse,omitempty"`
 }
 
 type xmlInvestorsInfo struct {
-	HasNonAccreditedInvestors bool `xml:"hasNonAccreditedInvestors"`
-	TotalNumberAlreadyInvested int `xml:"totalNumberAlreadyInvested"`
-	NonAccreditedInvestorsAlreadyInvested int `xml:"nonAccreditedInvestorsAlreadyInvested,omitempty"`
+	HasNonAccreditedInvestors             bool `xml:"hasNonAccreditedInvestors"`
+	TotalNumberAlreadyInvested            int  `xml:"totalNumberAlreadyInvested"`
+	NonAccreditedInvestorsAlreadyInvested int  `xml:"nonAccreditedInvestorsAlreadyInvested,omitempty"`
 }
 
 type xmlSalesCommissionsFindersFees struct {
-	SalesCommissions          float64 `xml:"salesCommissionsAmount"`
-	SalesCommissionsEstimate  bool    `xml:"salesCommissionsEstimate"`
-	FindersFees               float64 `xml:"findersFeesAmount"`
-	FindersFeesEstimate       bool    `xml:"findersFeesEstimate"`
+	SalesCommissions         float64 `xml:"salesCommissionsAmount"`
+	SalesCommissionsEstimate bool    `xml:"salesCommissionsEstimate"`
+	FindersFees              float64 `xml:"findersFeesAmount"`
+	FindersFeesEstimate      bool    `xml:"findersFeesEstimate"`
 }
 
 type xmlUseOfProceeds struct {
@@ -289,10 +289,10 @@ type xmlSignatureBlock struct {
 // envelope.
 func marshalFormD(fd *FormDFiling) ([]byte, error) {
 	es := edgarSubmission{
-		SchemaVersion: "X0708",
-		SubmissionType: fd.SubmissionType,
-		TestOrLive:     "LIVE",
-		IsAmendment:    fd.IsAmendment,
+		SchemaVersion:     "X0708",
+		SubmissionType:    fd.SubmissionType,
+		TestOrLive:        "LIVE",
+		IsAmendment:       fd.IsAmendment,
 		PreviousAccession: fd.FileNumber,
 	}
 	if es.IsAmendment {
@@ -313,7 +313,7 @@ func marshalFormD(fd *FormDFiling) ([]byte, error) {
 			RelatedPersonName: xmlPersonName{
 				FirstName: rp.FirstName, MiddleName: rp.MiddleName, LastName: rp.LastName,
 			},
-			RelatedPersonAddress: rp.Address,
+			RelatedPersonAddress:          rp.Address,
 			RelatedPersonRelationshipList: xmlRelationshipList{Relationship: rp.Relationships},
 			RelationshipClarification:     rp.Clarification,
 		})
@@ -331,14 +331,14 @@ func marshalFormD(fd *FormDFiling) ([]byte, error) {
 			NewFiling: xmlNewFiling{IsNewFiling: fd.IsNewFiling},
 			Amendment: xmlAmendment{IsAmendment: fd.IsAmendment, PreviousAccession: fd.FileNumber},
 		},
-		DateOfFirstSale: buildDateOfFirstSale(fd),
-		MoreThanOneYear: fd.DurationMoreThanOneYear,
+		DateOfFirstSale:          buildDateOfFirstSale(fd),
+		MoreThanOneYear:          fd.DurationMoreThanOneYear,
 		TypesOfSecuritiesOffered: buildTypesOfSecurities(fd.TypesOfSecurities),
 		BusinessCombinationTransaction: xmlBusinessCombination{
 			IsBusinessCombination: fd.IsBusinessCombinationTransaction,
 		},
 		MinimumInvestmentAccepted: fd.MinimumInvestmentAccepted,
-		OfferingSalesAmounts: buildOfferingSalesAmounts(fd.OfferingSalesAmount),
+		OfferingSalesAmounts:      buildOfferingSalesAmounts(fd.OfferingSalesAmount),
 		InvestorsInfo: xmlInvestorsInfo{
 			HasNonAccreditedInvestors:             fd.InvestorCount.NonAccreditedInvested > 0,
 			TotalNumberAlreadyInvested:            fd.InvestorCount.TotalAlreadyInvested,
@@ -371,12 +371,12 @@ func marshalFormD(fd *FormDFiling) ([]byte, error) {
 
 func toXMLIssuer(i Issuer) xmlIssuer {
 	out := xmlIssuer{
-		CIK:                  normalizeCIK(i.CIK),
-		EntityName:           i.EntityName,
-		IssuerAddress:        i.PrimaryAddress,
-		IssuerPhoneNumber:    i.Phone,
-		JurisdictionOfInc:    i.JurisdictionOfIncorporation,
-		EntityType:           i.EntityType,
+		CIK:               normalizeCIK(i.CIK),
+		EntityName:        i.EntityName,
+		IssuerAddress:     i.PrimaryAddress,
+		IssuerPhoneNumber: i.Phone,
+		JurisdictionOfInc: i.JurisdictionOfIncorporation,
+		EntityType:        i.EntityType,
 	}
 	switch i.YearOfIncorporation {
 	case "WithinLastFiveYears":

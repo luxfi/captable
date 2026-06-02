@@ -46,8 +46,8 @@ const (
 type PaymentSchedule string
 
 const (
-	PaymentDeferred    PaymentSchedule = "deferred"
-	PaymentAtMaturity  PaymentSchedule = "pay_at_maturity"
+	PaymentDeferred   PaymentSchedule = "deferred"
+	PaymentAtMaturity PaymentSchedule = "pay_at_maturity"
 )
 
 // ConversionTrigger defines what causes automatic conversion.
@@ -63,25 +63,25 @@ const (
 
 // ConvertibleNote represents a convertible debt instrument.
 type ConvertibleNote struct {
-	ID              string     `json:"id"`
-	PublicID        string     `json:"public_id"` // e.g. CN-01
-	CompanyID       string     `json:"company_id"`
-	StakeholderID   string     `json:"stakeholder_id"`
-	Type            NoteType   `json:"type"`
-	Status          NoteStatus `json:"status"`
-	Capital         float64    `json:"capital"` // principal amount
+	ID            string     `json:"id"`
+	PublicID      string     `json:"public_id"` // e.g. CN-01
+	CompanyID     string     `json:"company_id"`
+	StakeholderID string     `json:"stakeholder_id"`
+	Type          NoteType   `json:"type"`
+	Status        NoteStatus `json:"status"`
+	Capital       float64    `json:"capital"` // principal amount
 
 	ConversionCap   *float64 `json:"conversion_cap,omitempty"`
 	DiscountRate    *float64 `json:"discount_rate,omitempty"`
 	MFN             bool     `json:"mfn"`
 	AdditionalTerms string   `json:"additional_terms,omitempty"`
 
-	InterestRate            *float64          `json:"interest_rate,omitempty"`    // e.g. 0.06 for 6%
-	InterestMethod          InterestMethod    `json:"interest_method,omitempty"`
-	InterestAccrual         AccrualFrequency  `json:"interest_accrual,omitempty"`
-	InterestPaymentSchedule PaymentSchedule   `json:"interest_payment_schedule,omitempty"`
+	InterestRate            *float64         `json:"interest_rate,omitempty"` // e.g. 0.06 for 6%
+	InterestMethod          InterestMethod   `json:"interest_method,omitempty"`
+	InterestAccrual         AccrualFrequency `json:"interest_accrual,omitempty"`
+	InterestPaymentSchedule PaymentSchedule  `json:"interest_payment_schedule,omitempty"`
 
-	MaturityDate      *time.Time `json:"maturity_date,omitempty"`
+	MaturityDate      *time.Time        `json:"maturity_date,omitempty"`
 	ConversionTrigger ConversionTrigger `json:"conversion_trigger,omitempty"`
 
 	IssueDate         time.Time `json:"issue_date"`

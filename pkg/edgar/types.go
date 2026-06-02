@@ -68,42 +68,42 @@ const (
 type IndustryGroup string
 
 const (
-	IndustryAgriculture           IndustryGroup = "Agriculture"
-	IndustryBanking               IndustryGroup = "Commercial Banking"
-	IndustryInsurance             IndustryGroup = "Insurance"
-	IndustryInvesting             IndustryGroup = "Investing"
-	IndustryInvestmentBanking     IndustryGroup = "Investment Banking"
-	IndustryPooledInvestmentFund  IndustryGroup = "Pooled Investment Fund"
-	IndustryHedgeFund             IndustryGroup = "Hedge Fund"
-	IndustryPrivateEquityFund     IndustryGroup = "Private Equity Fund"
-	IndustryVentureCapitalFund    IndustryGroup = "Venture Capital Fund"
-	IndustryOtherInvestmentFund   IndustryGroup = "Other Investment Fund"
-	IndustryRealEstate            IndustryGroup = "Real Estate"
-	IndustryTechnology            IndustryGroup = "Technology"
-	IndustryTravel                IndustryGroup = "Travel"
-	IndustryOther                 IndustryGroup = "Other"
+	IndustryAgriculture          IndustryGroup = "Agriculture"
+	IndustryBanking              IndustryGroup = "Commercial Banking"
+	IndustryInsurance            IndustryGroup = "Insurance"
+	IndustryInvesting            IndustryGroup = "Investing"
+	IndustryInvestmentBanking    IndustryGroup = "Investment Banking"
+	IndustryPooledInvestmentFund IndustryGroup = "Pooled Investment Fund"
+	IndustryHedgeFund            IndustryGroup = "Hedge Fund"
+	IndustryPrivateEquityFund    IndustryGroup = "Private Equity Fund"
+	IndustryVentureCapitalFund   IndustryGroup = "Venture Capital Fund"
+	IndustryOtherInvestmentFund  IndustryGroup = "Other Investment Fund"
+	IndustryRealEstate           IndustryGroup = "Real Estate"
+	IndustryTechnology           IndustryGroup = "Technology"
+	IndustryTravel               IndustryGroup = "Travel"
+	IndustryOther                IndustryGroup = "Other"
 )
 
 // EntityType is the EDGAR <entityType> for the issuer on Form D.
 type EntityType string
 
 const (
-	EntityCorporation          EntityType = "Corporation"
-	EntityLimitedPartnership   EntityType = "Limited Partnership"
-	EntityLLC                  EntityType = "Limited Liability Company"
-	EntityGeneralPartnership   EntityType = "General Partnership"
-	EntityBusinessTrust        EntityType = "Business Trust"
-	EntityOther                EntityType = "Other"
+	EntityCorporation        EntityType = "Corporation"
+	EntityLimitedPartnership EntityType = "Limited Partnership"
+	EntityLLC                EntityType = "Limited Liability Company"
+	EntityGeneralPartnership EntityType = "General Partnership"
+	EntityBusinessTrust      EntityType = "Business Trust"
+	EntityOther              EntityType = "Other"
 )
 
 // Address is the postal address shape used by every Form D address
 // element (issuer primary office, related-person address, etc).
 type Address struct {
-	Street1    string `xml:"street1" json:"street1"`
-	Street2    string `xml:"street2,omitempty" json:"street2,omitempty"`
-	City       string `xml:"city" json:"city"`
+	Street1        string `xml:"street1" json:"street1"`
+	Street2        string `xml:"street2,omitempty" json:"street2,omitempty"`
+	City           string `xml:"city" json:"city"`
 	StateOrCountry string `xml:"stateOrCountry" json:"state_or_country"`
-	ZipCode    string `xml:"zipCode" json:"zip_code"`
+	ZipCode        string `xml:"zipCode" json:"zip_code"`
 }
 
 // Issuer is one issuer block on a Form D. Form D supports multiple
@@ -236,11 +236,11 @@ type UseOfProceeds struct {
 // Signature is one signature block at the bottom of Form D. The SEC
 // requires at least one issuer signature.
 type Signature struct {
-	IssuerName        string `xml:"issuerName" json:"issuer_name"`
-	SignatureName     string `xml:"signatureName" json:"signature_name"`
-	NameOfSigner      string `xml:"nameOfSigner" json:"name_of_signer"`
-	SignatureTitle    string `xml:"signatureTitle" json:"signature_title"`
-	SignatureDate     string `xml:"signatureDate" json:"signature_date"` // YYYY-MM-DD
+	IssuerName     string `xml:"issuerName" json:"issuer_name"`
+	SignatureName  string `xml:"signatureName" json:"signature_name"`
+	NameOfSigner   string `xml:"nameOfSigner" json:"name_of_signer"`
+	SignatureTitle string `xml:"signatureTitle" json:"signature_title"`
+	SignatureDate  string `xml:"signatureDate" json:"signature_date"` // YYYY-MM-DD
 }
 
 // FormDFiling is the in-memory representation of an EDGAR Form D

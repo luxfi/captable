@@ -238,7 +238,7 @@ func TestSubmitForm_1099INT_HappyPath(t *testing.T) {
 		Payees: []PayeeBlock{
 			{
 				Payee: testPayee(3),
-				Data: &Form1099INTData{InterestIncome: 750.00},
+				Data:  &Form1099INTData{InterestIncome: 750.00},
 			},
 		},
 	}
@@ -267,7 +267,7 @@ func TestSubmitForm_1099MISC_HappyPath(t *testing.T) {
 		Payees: []PayeeBlock{
 			{
 				Payee: testPayee(4),
-				Data: &Form1099MISCData{Rents: 12000.00, Royalties: 500.00},
+				Data:  &Form1099MISCData{Rents: 12000.00, Royalties: 500.00},
 			},
 		},
 	}
@@ -296,7 +296,7 @@ func TestSubmitForm_1099NEC_HappyPath(t *testing.T) {
 		Payees: []PayeeBlock{
 			{
 				Payee: testPayee(5),
-				Data: &Form1099NECData{NonemployeeCompensation: 50000.00},
+				Data:  &Form1099NECData{NonemployeeCompensation: 50000.00},
 			},
 		},
 	}
@@ -325,7 +325,7 @@ func TestSubmitForm_1099OID_HappyPath(t *testing.T) {
 		Payees: []PayeeBlock{
 			{
 				Payee: testPayee(6),
-				Data: &Form1099OIDData{OriginalIssueDiscount: 1200.00},
+				Data:  &Form1099OIDData{OriginalIssueDiscount: 1200.00},
 			},
 		},
 	}

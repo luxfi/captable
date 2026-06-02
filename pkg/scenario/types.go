@@ -2,14 +2,14 @@ package scenario
 
 // FundingRound describes the terms of a priced equity round.
 type FundingRound struct {
-	Name              string  `json:"name"` // Seed, Series A, etc.
-	PreMoneyValuation int64   `json:"pre_money_valuation"`
-	InvestmentAmount  int64   `json:"investment_amount"`
-	ShareClassType    string  `json:"share_class_type"` // preferred, common
+	Name                string  `json:"name"` // Seed, Series A, etc.
+	PreMoneyValuation   int64   `json:"pre_money_valuation"`
+	InvestmentAmount    int64   `json:"investment_amount"`
+	ShareClassType      string  `json:"share_class_type"` // preferred, common
 	LiquidationMultiple float64 `json:"liquidation_multiple"`
-	Participating     bool    `json:"participating"`
-	ParticipationCap  float64 `json:"participation_cap"`
-	AntiDilution      string  `json:"anti_dilution"` // none, broad_based, narrow_based, full_ratchet
+	Participating       bool    `json:"participating"`
+	ParticipationCap    float64 `json:"participation_cap"`
+	AntiDilution        string  `json:"anti_dilution"` // none, broad_based, narrow_based, full_ratchet
 }
 
 // ProFormaResult is the output of modeling a funding round.

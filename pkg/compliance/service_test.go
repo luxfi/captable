@@ -10,9 +10,9 @@ import (
 )
 
 type memRepo struct {
-	mu          sync.RWMutex
-	formDs      map[string]*FormD
-	blueSky     map[string]*BlueSkyFiling
+	mu      sync.RWMutex
+	formDs  map[string]*FormD
+	blueSky map[string]*BlueSkyFiling
 }
 
 func newMemRepo() *memRepo {
