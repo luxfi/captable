@@ -107,12 +107,12 @@ func TestCheckTransferBlocked(t *testing.T) {
 
 	future := time.Now().Add(365 * 24 * time.Hour)
 	repo.CreateRestriction(ctx, &Restriction{
-		ID:        "r1",
-		CompanyID: "c1",
-		Type:      "lockup",
-		StartDate: time.Now().Add(-30 * 24 * time.Hour),
-		EndDate:   &future,
-		Status:    "active",
+		ID:         "r1",
+		CompanyID:  "c1",
+		Type:       "lockup",
+		StartDate:  time.Now().Add(-30 * 24 * time.Hour),
+		EndDate:    &future,
+		Status:     "active",
 		Conditions: "180-day post-issuance lockup",
 	})
 

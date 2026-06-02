@@ -179,28 +179,28 @@ type Payee struct {
 // Form1099DIVData carries the box values for a 1099-DIV. Values map
 // directly to the IRIS <Form1099Div> element children.
 type Form1099DIVData struct {
-	OrdinaryDividends            float64 `xml:"OrdinaryDividendAmt" json:"ordinary_dividends"`              // Box 1a
-	QualifiedDividends           float64 `xml:"QualifiedDividendAmt,omitempty" json:"qualified_dividends"`  // Box 1b
-	TotalCapGainDist             float64 `xml:"TotalCapitalGainDistribution,omitempty" json:"total_capital_gain_dist"` // Box 2a
-	UnrecaptureSec1250Gain       float64 `xml:"UnrecapturedSec1250GainAmt,omitempty" json:"unrecapture_sec_1250_gain"` // Box 2b
-	Section1202Gain              float64 `xml:"Section1202GainAmt,omitempty" json:"section_1202_gain"`      // Box 2c
-	CollectiblesGain             float64 `xml:"CollectibleGainAmt,omitempty" json:"collectibles_gain"`      // Box 2d
-	Section897OrdinaryDividends  float64 `xml:"Section897OrdinaryDividendAmt,omitempty" json:"section_897_ordinary_dividends"` // Box 2e
-	Section897CapGain            float64 `xml:"Section897CapitalGainAmt,omitempty" json:"section_897_cap_gain"` // Box 2f
-	NondividendDistributions     float64 `xml:"NondividendDistributionAmt,omitempty" json:"nondividend_distributions"` // Box 3
-	FederalTaxWithheld           float64 `xml:"FederalTaxWithheldAmt,omitempty" json:"federal_tax_withheld"`   // Box 4
-	Section199ADividends         float64 `xml:"Sec199ADividendAmt,omitempty" json:"section_199a_dividends"`    // Box 5
-	InvestmentExpenses           float64 `xml:"InvestmentExpenseAmt,omitempty" json:"investment_expenses"`     // Box 6
-	ForeignTaxPaid               float64 `xml:"ForeignTaxPaidAmt,omitempty" json:"foreign_tax_paid"`           // Box 7
-	ForeignCountry               string  `xml:"ForeignCountryNm,omitempty" json:"foreign_country,omitempty"`   // Box 8
-	CashLiquidationDistributions float64 `xml:"CashLiquidationDistribAmt,omitempty" json:"cash_liquidation_distributions"`     // Box 9
-	NoncashLiqDistributions      float64 `xml:"NoncashLiquidationDistribAmt,omitempty" json:"noncash_liq_distributions"`       // Box 10
-	ExemptInterestDividends      float64 `xml:"ExemptInterestDividendAmt,omitempty" json:"exempt_interest_dividends"`          // Box 12
+	OrdinaryDividends            float64 `xml:"OrdinaryDividendAmt" json:"ordinary_dividends"`                                               // Box 1a
+	QualifiedDividends           float64 `xml:"QualifiedDividendAmt,omitempty" json:"qualified_dividends"`                                   // Box 1b
+	TotalCapGainDist             float64 `xml:"TotalCapitalGainDistribution,omitempty" json:"total_capital_gain_dist"`                       // Box 2a
+	UnrecaptureSec1250Gain       float64 `xml:"UnrecapturedSec1250GainAmt,omitempty" json:"unrecapture_sec_1250_gain"`                       // Box 2b
+	Section1202Gain              float64 `xml:"Section1202GainAmt,omitempty" json:"section_1202_gain"`                                       // Box 2c
+	CollectiblesGain             float64 `xml:"CollectibleGainAmt,omitempty" json:"collectibles_gain"`                                       // Box 2d
+	Section897OrdinaryDividends  float64 `xml:"Section897OrdinaryDividendAmt,omitempty" json:"section_897_ordinary_dividends"`               // Box 2e
+	Section897CapGain            float64 `xml:"Section897CapitalGainAmt,omitempty" json:"section_897_cap_gain"`                              // Box 2f
+	NondividendDistributions     float64 `xml:"NondividendDistributionAmt,omitempty" json:"nondividend_distributions"`                       // Box 3
+	FederalTaxWithheld           float64 `xml:"FederalTaxWithheldAmt,omitempty" json:"federal_tax_withheld"`                                 // Box 4
+	Section199ADividends         float64 `xml:"Sec199ADividendAmt,omitempty" json:"section_199a_dividends"`                                  // Box 5
+	InvestmentExpenses           float64 `xml:"InvestmentExpenseAmt,omitempty" json:"investment_expenses"`                                   // Box 6
+	ForeignTaxPaid               float64 `xml:"ForeignTaxPaidAmt,omitempty" json:"foreign_tax_paid"`                                         // Box 7
+	ForeignCountry               string  `xml:"ForeignCountryNm,omitempty" json:"foreign_country,omitempty"`                                 // Box 8
+	CashLiquidationDistributions float64 `xml:"CashLiquidationDistribAmt,omitempty" json:"cash_liquidation_distributions"`                   // Box 9
+	NoncashLiqDistributions      float64 `xml:"NoncashLiquidationDistribAmt,omitempty" json:"noncash_liq_distributions"`                     // Box 10
+	ExemptInterestDividends      float64 `xml:"ExemptInterestDividendAmt,omitempty" json:"exempt_interest_dividends"`                        // Box 12
 	SpecifiedPrivActBondIntDiv   float64 `xml:"SpecPrivateActivityBondInterestDividendAmt,omitempty" json:"specified_priv_act_bond_int_div"` // Box 13
-	StateTaxWithheld             float64 `xml:"StateTaxWithheldAmt,omitempty" json:"state_tax_withheld"`       // Box 14
-	StateCd                      string  `xml:"StateCd,omitempty" json:"state_cd,omitempty"`                   // Box 15
-	StatePayerStateNum           string  `xml:"StatePayerStateNum,omitempty" json:"state_payer_state_num,omitempty"`           // Box 16
-	StateIncome                  float64 `xml:"StateIncomeAmt,omitempty" json:"state_income"`                  // Box 16 (alt)
+	StateTaxWithheld             float64 `xml:"StateTaxWithheldAmt,omitempty" json:"state_tax_withheld"`                                     // Box 14
+	StateCd                      string  `xml:"StateCd,omitempty" json:"state_cd,omitempty"`                                                 // Box 15
+	StatePayerStateNum           string  `xml:"StatePayerStateNum,omitempty" json:"state_payer_state_num,omitempty"`                         // Box 16
+	StateIncome                  float64 `xml:"StateIncomeAmt,omitempty" json:"state_income"`                                                // Box 16 (alt)
 	FATCAFilingRequirement       bool    `xml:"FATCAFilingRequirementInd,omitempty" json:"fatca_filing_requirement"`
 	SecondTINNotice              bool    `xml:"SecondTINNoticeInd,omitempty" json:"second_tin_notice"`
 }
@@ -209,21 +209,21 @@ type Form1099DIVData struct {
 // proceeds). Values map directly to the IRIS <Form1099B> element
 // children.
 type Form1099BData struct {
-	CUSIP                  string  `xml:"CUSIPNum,omitempty" json:"cusip,omitempty"`              // Box (1a)
-	Description            string  `xml:"PropertyDescription" json:"description"`                 // Box 1a
-	DateAcquired           string  `xml:"AcquiredDt,omitempty" json:"date_acquired,omitempty"`    // Box 1b YYYY-MM-DD
-	DateSold               string  `xml:"SoldDt" json:"date_sold"`                                // Box 1c YYYY-MM-DD
-	Proceeds               float64 `xml:"ProceedsAmt" json:"proceeds"`                            // Box 1d
-	CostBasis              float64 `xml:"CostOrBasisAmt,omitempty" json:"cost_basis"`             // Box 1e
-	AccruedMarketDiscount  float64 `xml:"AccruedMarketDiscountAmt,omitempty" json:"accrued_market_discount"` // Box 1f
+	CUSIP                  string  `xml:"CUSIPNum,omitempty" json:"cusip,omitempty"`                            // Box (1a)
+	Description            string  `xml:"PropertyDescription" json:"description"`                               // Box 1a
+	DateAcquired           string  `xml:"AcquiredDt,omitempty" json:"date_acquired,omitempty"`                  // Box 1b YYYY-MM-DD
+	DateSold               string  `xml:"SoldDt" json:"date_sold"`                                              // Box 1c YYYY-MM-DD
+	Proceeds               float64 `xml:"ProceedsAmt" json:"proceeds"`                                          // Box 1d
+	CostBasis              float64 `xml:"CostOrBasisAmt,omitempty" json:"cost_basis"`                           // Box 1e
+	AccruedMarketDiscount  float64 `xml:"AccruedMarketDiscountAmt,omitempty" json:"accrued_market_discount"`    // Box 1f
 	WashSaleLossDisallowed float64 `xml:"WashSaleLossDisallowedAmt,omitempty" json:"wash_sale_loss_disallowed"` // Box 1g
-	ShortTermLongTerm      string  `xml:"ShortLongTermInd" json:"short_term_long_term"`           // Box 2 — S/L/X
-	OrdinaryInd            bool    `xml:"OrdinaryInd,omitempty" json:"ordinary_ind,omitempty"`    // Box 2 alt
-	FederalTaxWithheld     float64 `xml:"FederalTaxWithheldAmt,omitempty" json:"federal_tax_withheld"` // Box 4
-	NoncoveredSecurity     bool    `xml:"NoncoveredSecurityInd,omitempty" json:"noncovered_security"`  // Box 5
-	GrossProceedsLossNet   string  `xml:"GrossProceedsLossNetInd,omitempty" json:"gross_proceeds_loss_net"` // Box 6 — gross/net
+	ShortTermLongTerm      string  `xml:"ShortLongTermInd" json:"short_term_long_term"`                         // Box 2 — S/L/X
+	OrdinaryInd            bool    `xml:"OrdinaryInd,omitempty" json:"ordinary_ind,omitempty"`                  // Box 2 alt
+	FederalTaxWithheld     float64 `xml:"FederalTaxWithheldAmt,omitempty" json:"federal_tax_withheld"`          // Box 4
+	NoncoveredSecurity     bool    `xml:"NoncoveredSecurityInd,omitempty" json:"noncovered_security"`           // Box 5
+	GrossProceedsLossNet   string  `xml:"GrossProceedsLossNetInd,omitempty" json:"gross_proceeds_loss_net"`     // Box 6 — gross/net
 	Section897OrdLossNet   bool    `xml:"Section897LossNetReportingInd,omitempty" json:"section_897_ord_loss_net"`
-	BartsAndExchangesAmt   float64 `xml:"BartsAndExchangesAmt,omitempty" json:"bartering_amt"`    // Box 13
+	BartsAndExchangesAmt   float64 `xml:"BartsAndExchangesAmt,omitempty" json:"bartering_amt"` // Box 13
 	StateTaxWithheld       float64 `xml:"StateTaxWithheldAmt,omitempty" json:"state_tax_withheld"`
 	StateCd                string  `xml:"StateCd,omitempty" json:"state_cd,omitempty"`
 	StatePayerStateNum     string  `xml:"StatePayerStateNum,omitempty" json:"state_payer_state_num,omitempty"`
@@ -232,62 +232,62 @@ type Form1099BData struct {
 // Form1099INTData carries the box values for a 1099-INT (interest
 // income).
 type Form1099INTData struct {
-	PayerRTN                string  `xml:"PayerRTN,omitempty" json:"payer_rtn,omitempty"`          // Box 0
-	InterestIncome          float64 `xml:"InterestIncomeAmt" json:"interest_income"`               // Box 1
-	EarlyWithdrawalPenalty  float64 `xml:"EarlyWithdrawalPenaltyAmt,omitempty" json:"early_withdrawal_penalty"` // Box 2
-	USSavingsBondTreasInt   float64 `xml:"USSavingsBondTreasIntAmt,omitempty" json:"us_savings_bond_treas_int"` // Box 3
-	FederalTaxWithheld      float64 `xml:"FederalTaxWithheldAmt,omitempty" json:"federal_tax_withheld"` // Box 4
-	InvestmentExpenses      float64 `xml:"InvestmentExpenseAmt,omitempty" json:"investment_expenses"`   // Box 5
-	ForeignTaxPaid          float64 `xml:"ForeignTaxPaidAmt,omitempty" json:"foreign_tax_paid"`         // Box 6
-	ForeignCountry          string  `xml:"ForeignCountryNm,omitempty" json:"foreign_country,omitempty"` // Box 7
-	TaxExemptInterest       float64 `xml:"TaxExemptInterestAmt,omitempty" json:"tax_exempt_interest"`   // Box 8
-	SpecPvtActBondInterest  float64 `xml:"SpecPrivateActivityBondInterestAmt,omitempty" json:"spec_pvt_act_bond_interest"` // Box 9
-	MarketDiscount          float64 `xml:"MarketDiscountAmt,omitempty" json:"market_discount"`          // Box 10
-	BondPremium             float64 `xml:"BondPremiumAmt,omitempty" json:"bond_premium"`                // Box 11
-	BondPremiumTreasury     float64 `xml:"BondPremiumOnTreasuryAmt,omitempty" json:"bond_premium_treasury"` // Box 12
-	BondPremiumTaxExempt    float64 `xml:"BondPremiumOnTaxExemptBondAmt,omitempty" json:"bond_premium_tax_exempt"` // Box 13
-	TaxExemptCUSIP          string  `xml:"TaxExemptCUSIPNum,omitempty" json:"tax_exempt_cusip,omitempty"` // Box 14
-	StateCd                 string  `xml:"StateCd,omitempty" json:"state_cd,omitempty"`                 // Box 15
-	StatePayerStateNum      string  `xml:"StatePayerStateNum,omitempty" json:"state_payer_state_num,omitempty"` // Box 16
-	StateTaxWithheld        float64 `xml:"StateTaxWithheldAmt,omitempty" json:"state_tax_withheld"`     // Box 17
-	FATCAFilingRequirement  bool    `xml:"FATCAFilingRequirementInd,omitempty" json:"fatca_filing_requirement"`
-	SecondTINNotice         bool    `xml:"SecondTINNoticeInd,omitempty" json:"second_tin_notice"`
+	PayerRTN               string  `xml:"PayerRTN,omitempty" json:"payer_rtn,omitempty"`                                  // Box 0
+	InterestIncome         float64 `xml:"InterestIncomeAmt" json:"interest_income"`                                       // Box 1
+	EarlyWithdrawalPenalty float64 `xml:"EarlyWithdrawalPenaltyAmt,omitempty" json:"early_withdrawal_penalty"`            // Box 2
+	USSavingsBondTreasInt  float64 `xml:"USSavingsBondTreasIntAmt,omitempty" json:"us_savings_bond_treas_int"`            // Box 3
+	FederalTaxWithheld     float64 `xml:"FederalTaxWithheldAmt,omitempty" json:"federal_tax_withheld"`                    // Box 4
+	InvestmentExpenses     float64 `xml:"InvestmentExpenseAmt,omitempty" json:"investment_expenses"`                      // Box 5
+	ForeignTaxPaid         float64 `xml:"ForeignTaxPaidAmt,omitempty" json:"foreign_tax_paid"`                            // Box 6
+	ForeignCountry         string  `xml:"ForeignCountryNm,omitempty" json:"foreign_country,omitempty"`                    // Box 7
+	TaxExemptInterest      float64 `xml:"TaxExemptInterestAmt,omitempty" json:"tax_exempt_interest"`                      // Box 8
+	SpecPvtActBondInterest float64 `xml:"SpecPrivateActivityBondInterestAmt,omitempty" json:"spec_pvt_act_bond_interest"` // Box 9
+	MarketDiscount         float64 `xml:"MarketDiscountAmt,omitempty" json:"market_discount"`                             // Box 10
+	BondPremium            float64 `xml:"BondPremiumAmt,omitempty" json:"bond_premium"`                                   // Box 11
+	BondPremiumTreasury    float64 `xml:"BondPremiumOnTreasuryAmt,omitempty" json:"bond_premium_treasury"`                // Box 12
+	BondPremiumTaxExempt   float64 `xml:"BondPremiumOnTaxExemptBondAmt,omitempty" json:"bond_premium_tax_exempt"`         // Box 13
+	TaxExemptCUSIP         string  `xml:"TaxExemptCUSIPNum,omitempty" json:"tax_exempt_cusip,omitempty"`                  // Box 14
+	StateCd                string  `xml:"StateCd,omitempty" json:"state_cd,omitempty"`                                    // Box 15
+	StatePayerStateNum     string  `xml:"StatePayerStateNum,omitempty" json:"state_payer_state_num,omitempty"`            // Box 16
+	StateTaxWithheld       float64 `xml:"StateTaxWithheldAmt,omitempty" json:"state_tax_withheld"`                        // Box 17
+	FATCAFilingRequirement bool    `xml:"FATCAFilingRequirementInd,omitempty" json:"fatca_filing_requirement"`
+	SecondTINNotice        bool    `xml:"SecondTINNoticeInd,omitempty" json:"second_tin_notice"`
 }
 
 // Form1099MISCData carries the box values for a 1099-MISC. Boxes
 // renumbered per TY-2024 schema.
 type Form1099MISCData struct {
-	Rents                       float64 `xml:"RentAmt,omitempty" json:"rents"`                              // Box 1
-	Royalties                   float64 `xml:"RoyaltyAmt,omitempty" json:"royalties"`                       // Box 2
-	OtherIncome                 float64 `xml:"OtherIncomeAmt,omitempty" json:"other_income"`                // Box 3
-	FederalTaxWithheld          float64 `xml:"FederalTaxWithheldAmt,omitempty" json:"federal_tax_withheld"` // Box 4
-	FishingBoatProceeds         float64 `xml:"FishingBoatProceedsAmt,omitempty" json:"fishing_boat_proceeds"` // Box 5
-	MedicalHealthPayments       float64 `xml:"MedicalHealthPaymentAmt,omitempty" json:"medical_health_payments"` // Box 6
-	PayerDirectSalesInd         bool    `xml:"PayerDirectSalesInd,omitempty" json:"payer_direct_sales"`     // Box 7
-	SubstitutePayments          float64 `xml:"SubstitutePaymentsAmt,omitempty" json:"substitute_payments"`  // Box 8
-	CropInsuranceProceeds       float64 `xml:"CropInsuranceProceedsAmt,omitempty" json:"crop_insurance_proceeds"` // Box 9
-	GrossAttorneyProceeds       float64 `xml:"GrossAttorneyProceedsAmt,omitempty" json:"gross_attorney_proceeds"` // Box 10
-	FishPurchasedForResale      float64 `xml:"FishPurchasedForResaleAmt,omitempty" json:"fish_purchased_for_resale"` // Box 11
-	Section409ADeferrals        float64 `xml:"Section409ADeferralsAmt,omitempty" json:"section_409a_deferrals"` // Box 12
-	FATCAFilingRequirement      bool    `xml:"FATCAFilingRequirementInd,omitempty" json:"fatca_filing_requirement"` // Box 13
-	ExcessGoldenParachutePayts  float64 `xml:"ExcessGoldenParachutePaymentsAmt,omitempty" json:"excess_golden_parachute_payments"` // Box 14
-	NonqualifiedDeferredComp    float64 `xml:"NonqualifiedDeferredCompensationAmt,omitempty" json:"nonqualified_deferred_compensation"` // Box 15
-	StateTaxWithheld            float64 `xml:"StateTaxWithheldAmt,omitempty" json:"state_tax_withheld"`     // Box 16
-	StatePayerStateNum          string  `xml:"StatePayerStateNum,omitempty" json:"state_payer_state_num,omitempty"` // Box 17
-	StateIncome                 float64 `xml:"StateIncomeAmt,omitempty" json:"state_income"`                // Box 18
-	StateCd                     string  `xml:"StateCd,omitempty" json:"state_cd,omitempty"`
-	SecondTINNotice             bool    `xml:"SecondTINNoticeInd,omitempty" json:"second_tin_notice"`
+	Rents                      float64 `xml:"RentAmt,omitempty" json:"rents"`                                                          // Box 1
+	Royalties                  float64 `xml:"RoyaltyAmt,omitempty" json:"royalties"`                                                   // Box 2
+	OtherIncome                float64 `xml:"OtherIncomeAmt,omitempty" json:"other_income"`                                            // Box 3
+	FederalTaxWithheld         float64 `xml:"FederalTaxWithheldAmt,omitempty" json:"federal_tax_withheld"`                             // Box 4
+	FishingBoatProceeds        float64 `xml:"FishingBoatProceedsAmt,omitempty" json:"fishing_boat_proceeds"`                           // Box 5
+	MedicalHealthPayments      float64 `xml:"MedicalHealthPaymentAmt,omitempty" json:"medical_health_payments"`                        // Box 6
+	PayerDirectSalesInd        bool    `xml:"PayerDirectSalesInd,omitempty" json:"payer_direct_sales"`                                 // Box 7
+	SubstitutePayments         float64 `xml:"SubstitutePaymentsAmt,omitempty" json:"substitute_payments"`                              // Box 8
+	CropInsuranceProceeds      float64 `xml:"CropInsuranceProceedsAmt,omitempty" json:"crop_insurance_proceeds"`                       // Box 9
+	GrossAttorneyProceeds      float64 `xml:"GrossAttorneyProceedsAmt,omitempty" json:"gross_attorney_proceeds"`                       // Box 10
+	FishPurchasedForResale     float64 `xml:"FishPurchasedForResaleAmt,omitempty" json:"fish_purchased_for_resale"`                    // Box 11
+	Section409ADeferrals       float64 `xml:"Section409ADeferralsAmt,omitempty" json:"section_409a_deferrals"`                         // Box 12
+	FATCAFilingRequirement     bool    `xml:"FATCAFilingRequirementInd,omitempty" json:"fatca_filing_requirement"`                     // Box 13
+	ExcessGoldenParachutePayts float64 `xml:"ExcessGoldenParachutePaymentsAmt,omitempty" json:"excess_golden_parachute_payments"`      // Box 14
+	NonqualifiedDeferredComp   float64 `xml:"NonqualifiedDeferredCompensationAmt,omitempty" json:"nonqualified_deferred_compensation"` // Box 15
+	StateTaxWithheld           float64 `xml:"StateTaxWithheldAmt,omitempty" json:"state_tax_withheld"`                                 // Box 16
+	StatePayerStateNum         string  `xml:"StatePayerStateNum,omitempty" json:"state_payer_state_num,omitempty"`                     // Box 17
+	StateIncome                float64 `xml:"StateIncomeAmt,omitempty" json:"state_income"`                                            // Box 18
+	StateCd                    string  `xml:"StateCd,omitempty" json:"state_cd,omitempty"`
+	SecondTINNotice            bool    `xml:"SecondTINNoticeInd,omitempty" json:"second_tin_notice"`
 }
 
 // Form1099NECData carries the box values for a 1099-NEC (non-employee
 // compensation). The form is small: only 4 reportable boxes.
 type Form1099NECData struct {
-	NonemployeeCompensation float64 `xml:"NonemployeeCompensationAmt" json:"nonemployee_compensation"`     // Box 1
-	PayerDirectSalesInd     bool    `xml:"PayerDirectSalesInd,omitempty" json:"payer_direct_sales"`        // Box 2
-	FederalTaxWithheld      float64 `xml:"FederalTaxWithheldAmt,omitempty" json:"federal_tax_withheld"`    // Box 4
-	StateTaxWithheld        float64 `xml:"StateTaxWithheldAmt,omitempty" json:"state_tax_withheld"`        // Box 5
+	NonemployeeCompensation float64 `xml:"NonemployeeCompensationAmt" json:"nonemployee_compensation"`          // Box 1
+	PayerDirectSalesInd     bool    `xml:"PayerDirectSalesInd,omitempty" json:"payer_direct_sales"`             // Box 2
+	FederalTaxWithheld      float64 `xml:"FederalTaxWithheldAmt,omitempty" json:"federal_tax_withheld"`         // Box 4
+	StateTaxWithheld        float64 `xml:"StateTaxWithheldAmt,omitempty" json:"state_tax_withheld"`             // Box 5
 	StatePayerStateNum      string  `xml:"StatePayerStateNum,omitempty" json:"state_payer_state_num,omitempty"` // Box 6
-	StateIncome             float64 `xml:"StateIncomeAmt,omitempty" json:"state_income"`                   // Box 7
+	StateIncome             float64 `xml:"StateIncomeAmt,omitempty" json:"state_income"`                        // Box 7
 	StateCd                 string  `xml:"StateCd,omitempty" json:"state_cd,omitempty"`
 	SecondTINNotice         bool    `xml:"SecondTINNoticeInd,omitempty" json:"second_tin_notice"`
 }
@@ -295,76 +295,76 @@ type Form1099NECData struct {
 // Form1099OIDData carries the box values for a 1099-OID (original
 // issue discount).
 type Form1099OIDData struct {
-	OriginalIssueDiscount        float64 `xml:"OrigIssueDiscountAmt" json:"original_issue_discount"`              // Box 1
-	OtherPeriodicInterest        float64 `xml:"OtherPeriodicInterestAmt,omitempty" json:"other_periodic_interest"` // Box 2
-	EarlyWithdrawalPenalty       float64 `xml:"EarlyWithdrawalPenaltyAmt,omitempty" json:"early_withdrawal_penalty"` // Box 3
-	FederalTaxWithheld           float64 `xml:"FederalTaxWithheldAmt,omitempty" json:"federal_tax_withheld"`      // Box 4
-	MarketDiscount               float64 `xml:"MarketDiscountAmt,omitempty" json:"market_discount"`               // Box 5
-	AcquisitionPremium           float64 `xml:"AcquisitionPremiumAmt,omitempty" json:"acquisition_premium"`       // Box 6
-	Description                  string  `xml:"PropertyDescription,omitempty" json:"description,omitempty"`       // Box 7
-	OriginalIssueDiscOnUSTreas   float64 `xml:"OrigIssueDiscOnUSTreasAmt,omitempty" json:"orig_issue_disc_on_us_treas"` // Box 8
-	InvestmentExpenses           float64 `xml:"InvestmentExpenseAmt,omitempty" json:"investment_expenses"`        // Box 9
-	BondPremium                  float64 `xml:"BondPremiumAmt,omitempty" json:"bond_premium"`                     // Box 10
-	TaxExemptOIDAmt              float64 `xml:"TaxExemptOIDAmt,omitempty" json:"tax_exempt_oid"`                  // Box 11
-	StateCd                      string  `xml:"StateCd,omitempty" json:"state_cd,omitempty"`
-	StatePayerStateNum           string  `xml:"StatePayerStateNum,omitempty" json:"state_payer_state_num,omitempty"`
-	StateTaxWithheld             float64 `xml:"StateTaxWithheldAmt,omitempty" json:"state_tax_withheld"`
-	FATCAFilingRequirement       bool    `xml:"FATCAFilingRequirementInd,omitempty" json:"fatca_filing_requirement"`
-	SecondTINNotice              bool    `xml:"SecondTINNoticeInd,omitempty" json:"second_tin_notice"`
+	OriginalIssueDiscount      float64 `xml:"OrigIssueDiscountAmt" json:"original_issue_discount"`                    // Box 1
+	OtherPeriodicInterest      float64 `xml:"OtherPeriodicInterestAmt,omitempty" json:"other_periodic_interest"`      // Box 2
+	EarlyWithdrawalPenalty     float64 `xml:"EarlyWithdrawalPenaltyAmt,omitempty" json:"early_withdrawal_penalty"`    // Box 3
+	FederalTaxWithheld         float64 `xml:"FederalTaxWithheldAmt,omitempty" json:"federal_tax_withheld"`            // Box 4
+	MarketDiscount             float64 `xml:"MarketDiscountAmt,omitempty" json:"market_discount"`                     // Box 5
+	AcquisitionPremium         float64 `xml:"AcquisitionPremiumAmt,omitempty" json:"acquisition_premium"`             // Box 6
+	Description                string  `xml:"PropertyDescription,omitempty" json:"description,omitempty"`             // Box 7
+	OriginalIssueDiscOnUSTreas float64 `xml:"OrigIssueDiscOnUSTreasAmt,omitempty" json:"orig_issue_disc_on_us_treas"` // Box 8
+	InvestmentExpenses         float64 `xml:"InvestmentExpenseAmt,omitempty" json:"investment_expenses"`              // Box 9
+	BondPremium                float64 `xml:"BondPremiumAmt,omitempty" json:"bond_premium"`                           // Box 10
+	TaxExemptOIDAmt            float64 `xml:"TaxExemptOIDAmt,omitempty" json:"tax_exempt_oid"`                        // Box 11
+	StateCd                    string  `xml:"StateCd,omitempty" json:"state_cd,omitempty"`
+	StatePayerStateNum         string  `xml:"StatePayerStateNum,omitempty" json:"state_payer_state_num,omitempty"`
+	StateTaxWithheld           float64 `xml:"StateTaxWithheldAmt,omitempty" json:"state_tax_withheld"`
+	FATCAFilingRequirement     bool    `xml:"FATCAFilingRequirementInd,omitempty" json:"fatca_filing_requirement"`
+	SecondTINNotice            bool    `xml:"SecondTINNoticeInd,omitempty" json:"second_tin_notice"`
 }
 
 // Form1099KData carries the box values for a 1099-K (payment-card /
 // third-party network transactions). The TY-2024 threshold is $5,000
 // aggregate (will fall further in subsequent TYs).
 type Form1099KData struct {
-	GrossAmount             float64 `xml:"GrossAmt" json:"gross_amount"`                              // Box 1a
-	CardNotPresentTrans     float64 `xml:"CardNotPresentTransactionsAmt,omitempty" json:"card_not_present_trans"` // Box 1b
-	MerchantCategoryCd      string  `xml:"MerchantCategoryCd,omitempty" json:"merchant_category_cd,omitempty"`     // Box 2
-	PaymentTransNum         int     `xml:"PaymentTransactionNum,omitempty" json:"payment_transaction_num"`         // Box 3
-	FederalTaxWithheld      float64 `xml:"FederalTaxWithheldAmt,omitempty" json:"federal_tax_withheld"`            // Box 4
-	JanGrossAmount          float64 `xml:"JanuaryGrossAmt,omitempty" json:"jan_gross_amount"`                      // Box 5a
-	FebGrossAmount          float64 `xml:"FebruaryGrossAmt,omitempty" json:"feb_gross_amount"`                     // Box 5b
-	MarGrossAmount          float64 `xml:"MarchGrossAmt,omitempty" json:"mar_gross_amount"`                        // Box 5c
-	AprGrossAmount          float64 `xml:"AprilGrossAmt,omitempty" json:"apr_gross_amount"`                        // Box 5d
-	MayGrossAmount          float64 `xml:"MayGrossAmt,omitempty" json:"may_gross_amount"`                          // Box 5e
-	JunGrossAmount          float64 `xml:"JuneGrossAmt,omitempty" json:"jun_gross_amount"`                         // Box 5f
-	JulGrossAmount          float64 `xml:"JulyGrossAmt,omitempty" json:"jul_gross_amount"`                         // Box 5g
-	AugGrossAmount          float64 `xml:"AugustGrossAmt,omitempty" json:"aug_gross_amount"`                       // Box 5h
-	SepGrossAmount          float64 `xml:"SeptemberGrossAmt,omitempty" json:"sep_gross_amount"`                    // Box 5i
-	OctGrossAmount          float64 `xml:"OctoberGrossAmt,omitempty" json:"oct_gross_amount"`                      // Box 5j
-	NovGrossAmount          float64 `xml:"NovemberGrossAmt,omitempty" json:"nov_gross_amount"`                     // Box 5k
-	DecGrossAmount          float64 `xml:"DecemberGrossAmt,omitempty" json:"dec_gross_amount"`                     // Box 5l
-	StateCd                 string  `xml:"StateCd,omitempty" json:"state_cd,omitempty"`                            // Box 6
-	StatePayerStateNum      string  `xml:"StatePayerStateNum,omitempty" json:"state_payer_state_num,omitempty"`    // Box 7
-	StateIncome             float64 `xml:"StateIncomeAmt,omitempty" json:"state_income"`                           // Box 8
-	StateTaxWithheld        float64 `xml:"StateTaxWithheldAmt,omitempty" json:"state_tax_withheld"`                // Box 9
-	PSEIndicator            string  `xml:"PaymentSettlementEntityInd,omitempty" json:"pse_indicator,omitempty"`    // PSE/EPF
-	TransactionsIndicator   string  `xml:"TransactionsIndicatorCd,omitempty" json:"transactions_indicator"`        // payment_card or third_party_network
+	GrossAmount           float64 `xml:"GrossAmt" json:"gross_amount"`                                          // Box 1a
+	CardNotPresentTrans   float64 `xml:"CardNotPresentTransactionsAmt,omitempty" json:"card_not_present_trans"` // Box 1b
+	MerchantCategoryCd    string  `xml:"MerchantCategoryCd,omitempty" json:"merchant_category_cd,omitempty"`    // Box 2
+	PaymentTransNum       int     `xml:"PaymentTransactionNum,omitempty" json:"payment_transaction_num"`        // Box 3
+	FederalTaxWithheld    float64 `xml:"FederalTaxWithheldAmt,omitempty" json:"federal_tax_withheld"`           // Box 4
+	JanGrossAmount        float64 `xml:"JanuaryGrossAmt,omitempty" json:"jan_gross_amount"`                     // Box 5a
+	FebGrossAmount        float64 `xml:"FebruaryGrossAmt,omitempty" json:"feb_gross_amount"`                    // Box 5b
+	MarGrossAmount        float64 `xml:"MarchGrossAmt,omitempty" json:"mar_gross_amount"`                       // Box 5c
+	AprGrossAmount        float64 `xml:"AprilGrossAmt,omitempty" json:"apr_gross_amount"`                       // Box 5d
+	MayGrossAmount        float64 `xml:"MayGrossAmt,omitempty" json:"may_gross_amount"`                         // Box 5e
+	JunGrossAmount        float64 `xml:"JuneGrossAmt,omitempty" json:"jun_gross_amount"`                        // Box 5f
+	JulGrossAmount        float64 `xml:"JulyGrossAmt,omitempty" json:"jul_gross_amount"`                        // Box 5g
+	AugGrossAmount        float64 `xml:"AugustGrossAmt,omitempty" json:"aug_gross_amount"`                      // Box 5h
+	SepGrossAmount        float64 `xml:"SeptemberGrossAmt,omitempty" json:"sep_gross_amount"`                   // Box 5i
+	OctGrossAmount        float64 `xml:"OctoberGrossAmt,omitempty" json:"oct_gross_amount"`                     // Box 5j
+	NovGrossAmount        float64 `xml:"NovemberGrossAmt,omitempty" json:"nov_gross_amount"`                    // Box 5k
+	DecGrossAmount        float64 `xml:"DecemberGrossAmt,omitempty" json:"dec_gross_amount"`                    // Box 5l
+	StateCd               string  `xml:"StateCd,omitempty" json:"state_cd,omitempty"`                           // Box 6
+	StatePayerStateNum    string  `xml:"StatePayerStateNum,omitempty" json:"state_payer_state_num,omitempty"`   // Box 7
+	StateIncome           float64 `xml:"StateIncomeAmt,omitempty" json:"state_income"`                          // Box 8
+	StateTaxWithheld      float64 `xml:"StateTaxWithheldAmt,omitempty" json:"state_tax_withheld"`               // Box 9
+	PSEIndicator          string  `xml:"PaymentSettlementEntityInd,omitempty" json:"pse_indicator,omitempty"`   // PSE/EPF
+	TransactionsIndicator string  `xml:"TransactionsIndicatorCd,omitempty" json:"transactions_indicator"`       // payment_card or third_party_network
 }
 
 // Form1099RData carries the box values for a 1099-R (pension /
 // retirement distributions).
 type Form1099RData struct {
-	GrossDistribution         float64 `xml:"GrossDistributionAmt" json:"gross_distribution"`             // Box 1
-	TaxableAmount             float64 `xml:"TaxableAmt,omitempty" json:"taxable_amount"`                 // Box 2a
-	TaxableAmountNotDetermined bool   `xml:"TaxableAmtNotDeterminedInd,omitempty" json:"taxable_amount_not_determined"` // Box 2b
-	TotalDistributionInd      bool    `xml:"TotalDistributionInd,omitempty" json:"total_distribution"`   // Box 2b
-	CapitalGain               float64 `xml:"CapitalGainAmt,omitempty" json:"capital_gain"`               // Box 3
-	FederalTaxWithheld        float64 `xml:"FederalTaxWithheldAmt,omitempty" json:"federal_tax_withheld"` // Box 4
-	EmployeeContribOrInsPrem  float64 `xml:"EmployeeContribOrInsPremAmt,omitempty" json:"employee_contrib_or_ins_prem"` // Box 5
-	NetUnrealizedAppreciation float64 `xml:"NetUnrealizedApprecAmt,omitempty" json:"net_unrealized_appreciation"`       // Box 6
-	DistributionCodeCd        string  `xml:"DistributionCodeCd,omitempty" json:"distribution_code_cd"`   // Box 7
-	IRASEPSIMPLEInd           bool    `xml:"IRASEPSIMPLEInd,omitempty" json:"ira_sep_simple"`            // Box 7 (IRA/SEP/SIMPLE)
-	OtherAmount               float64 `xml:"OtherAmt,omitempty" json:"other_amount"`                     // Box 8
-	OtherPct                  float64 `xml:"OtherPct,omitempty" json:"other_pct"`                        // Box 8 (alt)
-	TotalEmployeeContribAmt   float64 `xml:"YourPercentTotalDistributionPct,omitempty" json:"total_employee_contrib_pct"` // Box 9a
-	EmployeeContributionsAmt  float64 `xml:"EmployeeContributionsAmt,omitempty" json:"employee_contributions_amt"`         // Box 9b
-	AmountAllocatedToIRR      float64 `xml:"AmountAllocatedToIRRAmt,omitempty" json:"amount_allocated_to_irr"`             // Box 10
-	FirstYearRothContribYr    int     `xml:"FirstYearOfDsgnRothContribYr,omitempty" json:"first_year_roth_contrib_yr"`     // Box 11
-	StateTaxWithheld          float64 `xml:"StateTaxWithheldAmt,omitempty" json:"state_tax_withheld"`    // Box 14
-	StateCd                   string  `xml:"StateCd,omitempty" json:"state_cd,omitempty"`                // Box 15
-	StatePayerStateNum        string  `xml:"StatePayerStateNum,omitempty" json:"state_payer_state_num,omitempty"` // Box 15
-	StateDistribution         float64 `xml:"StateDistributionAmt,omitempty" json:"state_distribution"`   // Box 16
+	GrossDistribution          float64 `xml:"GrossDistributionAmt" json:"gross_distribution"`                              // Box 1
+	TaxableAmount              float64 `xml:"TaxableAmt,omitempty" json:"taxable_amount"`                                  // Box 2a
+	TaxableAmountNotDetermined bool    `xml:"TaxableAmtNotDeterminedInd,omitempty" json:"taxable_amount_not_determined"`   // Box 2b
+	TotalDistributionInd       bool    `xml:"TotalDistributionInd,omitempty" json:"total_distribution"`                    // Box 2b
+	CapitalGain                float64 `xml:"CapitalGainAmt,omitempty" json:"capital_gain"`                                // Box 3
+	FederalTaxWithheld         float64 `xml:"FederalTaxWithheldAmt,omitempty" json:"federal_tax_withheld"`                 // Box 4
+	EmployeeContribOrInsPrem   float64 `xml:"EmployeeContribOrInsPremAmt,omitempty" json:"employee_contrib_or_ins_prem"`   // Box 5
+	NetUnrealizedAppreciation  float64 `xml:"NetUnrealizedApprecAmt,omitempty" json:"net_unrealized_appreciation"`         // Box 6
+	DistributionCodeCd         string  `xml:"DistributionCodeCd,omitempty" json:"distribution_code_cd"`                    // Box 7
+	IRASEPSIMPLEInd            bool    `xml:"IRASEPSIMPLEInd,omitempty" json:"ira_sep_simple"`                             // Box 7 (IRA/SEP/SIMPLE)
+	OtherAmount                float64 `xml:"OtherAmt,omitempty" json:"other_amount"`                                      // Box 8
+	OtherPct                   float64 `xml:"OtherPct,omitempty" json:"other_pct"`                                         // Box 8 (alt)
+	TotalEmployeeContribAmt    float64 `xml:"YourPercentTotalDistributionPct,omitempty" json:"total_employee_contrib_pct"` // Box 9a
+	EmployeeContributionsAmt   float64 `xml:"EmployeeContributionsAmt,omitempty" json:"employee_contributions_amt"`        // Box 9b
+	AmountAllocatedToIRR       float64 `xml:"AmountAllocatedToIRRAmt,omitempty" json:"amount_allocated_to_irr"`            // Box 10
+	FirstYearRothContribYr     int     `xml:"FirstYearOfDsgnRothContribYr,omitempty" json:"first_year_roth_contrib_yr"`    // Box 11
+	StateTaxWithheld           float64 `xml:"StateTaxWithheldAmt,omitempty" json:"state_tax_withheld"`                     // Box 14
+	StateCd                    string  `xml:"StateCd,omitempty" json:"state_cd,omitempty"`                                 // Box 15
+	StatePayerStateNum         string  `xml:"StatePayerStateNum,omitempty" json:"state_payer_state_num,omitempty"`         // Box 15
+	StateDistribution          float64 `xml:"StateDistributionAmt,omitempty" json:"state_distribution"`                    // Box 16
 }
 
 // PayeeBlock is the per-payee submission record carried inside a
@@ -468,13 +468,13 @@ type SubmissionError struct {
 
 // Status is the parsed reply from GetSubmissionStatus.
 type Status struct {
-	ReceiptID    string            `json:"receipt_id"`
-	Status       string            `json:"status"`
-	AcceptedAt   time.Time         `json:"accepted_at,omitempty"`
-	RejectedAt   time.Time         `json:"rejected_at,omitempty"`
-	AcceptedCnt  int               `json:"accepted_cnt,omitempty"`
-	RejectedCnt  int               `json:"rejected_cnt,omitempty"`
-	Errors       []SubmissionError `json:"errors,omitempty"`
+	ReceiptID   string            `json:"receipt_id"`
+	Status      string            `json:"status"`
+	AcceptedAt  time.Time         `json:"accepted_at,omitempty"`
+	RejectedAt  time.Time         `json:"rejected_at,omitempty"`
+	AcceptedCnt int               `json:"accepted_cnt,omitempty"`
+	RejectedCnt int               `json:"rejected_cnt,omitempty"`
+	Errors      []SubmissionError `json:"errors,omitempty"`
 }
 
 // Submission is the summary record returned by ListSubmissions.
@@ -562,31 +562,31 @@ type Correction struct {
 
 // xmlSubmissionRoot is the wire root element.
 type xmlSubmissionRoot struct {
-	XMLName             xml.Name           `xml:"Form1099Submission"`
-	Xmlns               string             `xml:"xmlns,attr"`
-	XmlnsXSI            string             `xml:"xmlns:xsi,attr"`
-	SubmissionHeader    xmlSubmissionHdr   `xml:"SubmissionHeader"`
-	Form1099Records     []xmlRawForm       `xml:",any"`
+	XMLName          xml.Name         `xml:"Form1099Submission"`
+	Xmlns            string           `xml:"xmlns,attr"`
+	XmlnsXSI         string           `xml:"xmlns:xsi,attr"`
+	SubmissionHeader xmlSubmissionHdr `xml:"SubmissionHeader"`
+	Form1099Records  []xmlRawForm     `xml:",any"`
 }
 
 // xmlSubmissionHdr is the SubmissionHeader element.
 type xmlSubmissionHdr struct {
-	TaxYear            int                  `xml:"TaxYr"`
-	FormTypeCd         FormType             `xml:"FormTypeCd"`
-	PaymentYearTypeCd  PaymentYearTypeCd    `xml:"PaymentYearTypeCd"`
-	OriginalReceiptID  string               `xml:"OriginalReceiptID,omitempty"`
-	TestFileInd        string               `xml:"TestFileInd,omitempty"` // "X" if test
-	Transmitter        Transmitter          `xml:"Transmitter"`
-	Payer              Payer                `xml:"Payer"`
-	TotalPayeeCnt      int                  `xml:"TotalPayeeCnt"`
+	TaxYear           int               `xml:"TaxYr"`
+	FormTypeCd        FormType          `xml:"FormTypeCd"`
+	PaymentYearTypeCd PaymentYearTypeCd `xml:"PaymentYearTypeCd"`
+	OriginalReceiptID string            `xml:"OriginalReceiptID,omitempty"`
+	TestFileInd       string            `xml:"TestFileInd,omitempty"` // "X" if test
+	Transmitter       Transmitter       `xml:"Transmitter"`
+	Payer             Payer             `xml:"Payer"`
+	TotalPayeeCnt     int               `xml:"TotalPayeeCnt"`
 }
 
 // xmlRawForm carries one per-payee record. The element name is set
 // from FormType at marshal time.
 type xmlRawForm struct {
 	XMLName        xml.Name
-	CorrectionType string  `xml:"CorrectionTypeCd,omitempty"`
-	Payee          Payee   `xml:"Payee"`
+	CorrectionType string `xml:"CorrectionTypeCd,omitempty"`
+	Payee          Payee  `xml:"Payee"`
 	Inner          xmlInner
 }
 

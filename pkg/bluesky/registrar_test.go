@@ -90,12 +90,12 @@ func sampleRenewal() *RenewalFiling {
 // request body. Returns the canonical login + filing receipts.
 type efdMux struct {
 	*http.ServeMux
-	loginCalls   atomic.Int32
-	submitCalls  atomic.Int32
-	renewCalls   atomic.Int32
-	statusCalls  atomic.Int32
-	lastFiling   atomic.Value // *efdFilingRequest
-	respond      func(w http.ResponseWriter, path string)
+	loginCalls  atomic.Int32
+	submitCalls atomic.Int32
+	renewCalls  atomic.Int32
+	statusCalls atomic.Int32
+	lastFiling  atomic.Value // *efdFilingRequest
+	respond     func(w http.ResponseWriter, path string)
 }
 
 func newEFDMux(t *testing.T) *efdMux {
@@ -154,11 +154,11 @@ func newEFDRegistrar(t *testing.T, srv *httptest.Server) *Registrar {
 			BaseURL:  srv.URL,
 			Username: "tester", Password: "secret", FirmCRD: "123456",
 		},
-		FL: StatePortalConfig{BaseURL: srv.URL, APIKey: "fl-key", AccountID: "fl-acct"},
-		TX: StatePortalConfig{BaseURL: srv.URL, APIKey: "tx-key", AccountID: "tx-acct"},
-		NY: StatePortalConfig{BaseURL: srv.URL, APIKey: "ny-key", AccountID: "ny-acct"},
-		CA: StatePortalConfig{BaseURL: srv.URL, APIKey: "ca-key", AccountID: "ca-acct"},
-		MA: StatePortalConfig{BaseURL: srv.URL, APIKey: "ma-key", AccountID: "ma-acct"},
+		FL:             StatePortalConfig{BaseURL: srv.URL, APIKey: "fl-key", AccountID: "fl-acct"},
+		TX:             StatePortalConfig{BaseURL: srv.URL, APIKey: "tx-key", AccountID: "tx-acct"},
+		NY:             StatePortalConfig{BaseURL: srv.URL, APIKey: "ny-key", AccountID: "ny-acct"},
+		CA:             StatePortalConfig{BaseURL: srv.URL, APIKey: "ca-key", AccountID: "ca-acct"},
+		MA:             StatePortalConfig{BaseURL: srv.URL, APIKey: "ma-key", AccountID: "ma-acct"},
 		UserAgent:      "Lux Captable test@luxfi.io",
 		MaxRetries:     2,
 		RetryBaseDelay: time.Millisecond,
@@ -647,11 +647,11 @@ func TestValidate_BadSignatureDate(t *testing.T) {
 // --- RegisterAdapter override ---
 
 type fakeAdapter struct {
-	state    State
-	called   atomic.Bool
+	state  State
+	called atomic.Bool
 }
 
-func (f *fakeAdapter) State() State              { return f.state }
+func (f *fakeAdapter) State() State             { return f.state }
 func (f *fakeAdapter) SupportsElectronic() bool { return true }
 func (f *fakeAdapter) FileNoticeOfSale(_ context.Context, _ *NoticeFiling) (*Acknowledgment, error) {
 	f.called.Store(true)

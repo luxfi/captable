@@ -185,15 +185,15 @@ func (f *Filer) CIK() string { return f.cfg.CIK }
 //
 // The submission is built by:
 //
-//   1. Validating the FormDFiling struct against the public Form D
-//      schema constraints.
-//   2. Marshaling the FormDFiling to the SEC's Form D XML
-//      primaryDocument shape.
-//   3. Wrapping the XML in a SUBMISSION SGML header per Filer Manual
-//      Volume II §3.
-//   4. POSTing the multipart submission to the EDGARLink Online
-//      submission endpoint.
-//   5. Parsing the EDGAR acknowledgment payload.
+//  1. Validating the FormDFiling struct against the public Form D
+//     schema constraints.
+//  2. Marshaling the FormDFiling to the SEC's Form D XML
+//     primaryDocument shape.
+//  3. Wrapping the XML in a SUBMISSION SGML header per Filer Manual
+//     Volume II §3.
+//  4. POSTing the multipart submission to the EDGARLink Online
+//     submission endpoint.
+//  5. Parsing the EDGAR acknowledgment payload.
 func (f *Filer) FileFormD(ctx context.Context, fd *FormDFiling) (*Acknowledgment, error) {
 	if f.cfg.CIK == "" {
 		return nil, ErrMissingCIK

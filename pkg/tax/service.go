@@ -102,6 +102,6 @@ func (s *Service) Compute1099B(proceeds, costBasis float64, dateAcquired, dateSo
 // RecipientInfo contains the identifying information needed for tax forms.
 type RecipientInfo struct {
 	Name    string `json:"name"`
-	TIN     string `json:"tin"`     // SSN or EIN
+	TIN     string `json:"tin"` // SSN or EIN
 	Address string `json:"address"`
 }

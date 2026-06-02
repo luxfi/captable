@@ -37,7 +37,7 @@ const (
 
 // Service handles option exercise workflows.
 type Service struct {
-	repo  Repository
+	repo   Repository
 	grants GrantProvider
 }
 
@@ -80,17 +80,17 @@ func (s *Service) Exercise(ctx context.Context, req *ExerciseRequest) (*Exercise
 	}
 
 	result := &ExerciseResult{
-		ID:              fmt.Sprintf("ex_%s_%d", req.GrantID, time.Now().UnixNano()),
-		GrantID:         req.GrantID,
-		SharesExercised: req.SharesExercised,
-		ExercisePrice:   exercisePrice,
-		FMVAtExercise:   fmv,
-		TotalCost:       exercisePrice,
-		TaxableSpread:   spread,
-		NetSharesIssued: req.SharesExercised,
-		ExerciseDate:    req.ExerciseDate,
+		ID:                 fmt.Sprintf("ex_%s_%d", req.GrantID, time.Now().UnixNano()),
+		GrantID:            req.GrantID,
+		SharesExercised:    req.SharesExercised,
+		ExercisePrice:      exercisePrice,
+		FMVAtExercise:      fmv,
+		TotalCost:          exercisePrice,
+		TaxableSpread:      spread,
+		NetSharesIssued:    req.SharesExercised,
+		ExerciseDate:       req.ExerciseDate,
 		Section83bDeadline: req.ExerciseDate.AddDate(0, 0, 30),
-		CreatedAt:       time.Now().UTC(),
+		CreatedAt:          time.Now().UTC(),
 	}
 
 	// Tax treatment depends on option type.

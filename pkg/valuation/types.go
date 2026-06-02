@@ -23,6 +23,6 @@ type Valuation409A struct {
 
 // ValuationHistory is a list of 409A valuations for a company, sorted by effective date descending.
 type ValuationHistory struct {
-	CompanyID  string         `json:"company_id"`
+	CompanyID  string          `json:"company_id"`
 	Valuations []Valuation409A `json:"valuations"`
 }
