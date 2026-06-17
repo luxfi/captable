@@ -1,4 +1,4 @@
-# LLM.md - Lux Cap Table
+# Lux Cap Table
 
 ## Overview
 Go module: `github.com/luxfi/captable`
