@@ -1,3 +1,5 @@
+<p align="center"><img src=".github/hero.svg" alt="captable" width="880"></p>
+
 # Lux Cap Table
 
 Domain library for cap table management, securities lifecycle, and compliance -- 26 packages, zero database opinion.
