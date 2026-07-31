@@ -49,7 +49,7 @@ type Submission struct {
 	Type            SubmissionType   `json:"type"`
 	Status          SubmissionStatus `json:"status"`
 	ProviderID      string           `json:"provider_id,omitempty"`   // external provider reference
-	ProviderName    string           `json:"provider_name,omitempty"` // e.g. "simplici"
+	ProviderName    string           `json:"provider_name,omitempty"` // e.g. the configured KYC vendor
 	SubmittedAt     time.Time        `json:"submitted_at"`
 	ReviewedAt      *time.Time       `json:"reviewed_at,omitempty"`
 	ExpiresAt       *time.Time       `json:"expires_at,omitempty"`
