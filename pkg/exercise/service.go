@@ -110,10 +110,7 @@ func (s *Service) Exercise(ctx context.Context, req *ExerciseRequest) (*Exercise
 	// Handle cashless exercise: net shares = (FMV - strike) * shares / FMV.
 	if req.ExerciseType == "cashless" {
 		if fmv > 0 {
-			netShares := int64(math.Floor((fmv - grant.StrikePrice) * float64(req.SharesExercised) / fmv))
-			if netShares < 0 {
-				netShares = 0
-			}
+			netShares := max(int64(math.Floor((fmv-grant.StrikePrice)*float64(req.SharesExercised)/fmv)), 0)
 			result.NetSharesIssued = netShares
 			result.TotalCost = 0 // no cash outlay for cashless
 		}

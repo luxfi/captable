@@ -448,14 +448,14 @@ func parseAcknowledgment(body []byte) (*Acknowledgment, error) {
 	// HTML path — extract the Filename and FileStatus tokens FIRE
 	// renders in the success-page output.
 	ack := &Acknowledgment{}
-	if i := strings.Index(s, "Filename:"); i >= 0 {
-		rest := strings.TrimSpace(s[i+len("Filename:"):])
+	if _, after, ok := strings.Cut(s, "Filename:"); ok {
+		rest := strings.TrimSpace(after)
 		if nl := strings.IndexAny(rest, "\r\n<"); nl > 0 {
 			ack.Filename = strings.TrimSpace(rest[:nl])
 		}
 	}
-	if i := strings.Index(s, "Status:"); i >= 0 {
-		rest := strings.TrimSpace(s[i+len("Status:"):])
+	if _, after, ok := strings.Cut(s, "Status:"); ok {
+		rest := strings.TrimSpace(after)
 		if nl := strings.IndexAny(rest, "\r\n<"); nl > 0 {
 			ack.Status = strings.TrimSpace(rest[:nl])
 		}

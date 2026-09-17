@@ -248,7 +248,7 @@ func TestEFD_TokenReused(t *testing.T) {
 	srv := httptest.NewServer(mux)
 	defer srv.Close()
 	reg := newEFDRegistrar(t, srv)
-	for i := 0; i < 3; i++ {
+	for i := range 3 {
 		if _, err := reg.FileNoticeOfSale(context.Background(), "CO", sampleNotice()); err != nil {
 			t.Fatalf("call %d: %v", i, err)
 		}

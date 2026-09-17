@@ -63,10 +63,7 @@ func (r *memRepo) ListTrades(_ context.Context, limit, offset int) ([]*Secondary
 	if offset >= len(out) {
 		return nil, nil
 	}
-	end := offset + limit
-	if end > len(out) {
-		end = len(out)
-	}
+	end := min(offset+limit, len(out))
 	return out[offset:end], nil
 }
 

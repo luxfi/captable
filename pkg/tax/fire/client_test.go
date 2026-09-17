@@ -91,7 +91,7 @@ func TestMarshal_FileLayout(t *testing.T) {
 		}
 	}
 	// CR-LF at the end of every record.
-	for i := 0; i < 5; i++ {
+	for i := range 5 {
 		off := i*(RecordLen+2) + RecordLen
 		if out[off] != '\r' || out[off+1] != '\n' {
 			t.Fatalf("record %d missing CR-LF terminator", i)

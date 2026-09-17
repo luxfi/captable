@@ -8,7 +8,7 @@ package cfsf
 
 import (
 	"fmt"
-	"sort"
+	"slices"
 )
 
 // RouteToStates produces the per-state filing decisions for a federal
@@ -38,7 +38,7 @@ func RouteToStates(fs FormSubmissionForRouting, states []State) ([]*StateFiling,
 		for s := range breakdown {
 			states = append(states, s)
 		}
-		sort.Slice(states, func(i, j int) bool { return states[i] < states[j] })
+		slices.Sort(states)
 	}
 
 	out := make([]*StateFiling, 0, len(states))
